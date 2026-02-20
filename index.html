@@ -224,6 +224,78 @@
       margin: 0;
     }
 
+    /* ── Tabs ── */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .tab-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      padding: 1rem 1.5rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-cyan);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-secondary);
+    }
+
+    .tab-btn.active {
+      color: var(--accent-cyan);
+    }
+
+    .tab-btn.active::after {
+      transform: scaleX(1);
+    }
+
+    .tab-btn .tab-emoji {
+      margin-right: 0.4rem;
+    }
+
+    .tab-panel {
+      display: none;
+      animation: tabFadeIn 0.4s ease;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* ── App Cards ── */
     .app-grid {
       display: grid;
@@ -450,7 +522,8 @@
       .app-grid { grid-template-columns: 1fr; }
       .features { grid-template-columns: 1fr; gap: 1.5rem; }
       .footer-inner { flex-direction: column; text-align: center; }
-      .footer-links { justify-content: center; }
+      .footer-links { justify-content: center; flex-wrap: wrap; }
+      .tab-btn { padding: 0.8rem 1rem; font-size: 0.85rem; }
     }
   </style>
 </head>
@@ -489,146 +562,208 @@
 
   <div class="divider"></div>
 
-  <!-- ════ Windows Apps ════ -->
-  <section id="windows">
+  <!-- ════ Products (Tabbed) ════ -->
+  <section id="products">
     <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">Windows Applications</div>
-        <h2 class="section-title">デスクトップで動く4つのツール</h2>
-        <p class="section-desc">C#で開発したWindowsネイティブアプリ。すべてGitHubからダウンロードできます。</p>
+
+      <!-- Tab Bar -->
+      <div class="tab-bar reveal">
+        <button class="tab-btn active" data-tab="windows"><span class="tab-emoji">🖥</span>Windows アプリ</button>
+        <button class="tab-btn" data-tab="chrome"><span class="tab-emoji">🌐</span>Chrome 拡張機能</button>
+        <button class="tab-btn" data-tab="nuget"><span class="tab-emoji">📦</span>NuGet ライブラリ</button>
       </div>
 
-      <div class="app-grid">
-
-        <div class="app-card reveal" data-accent="cyan">
-          <div class="card-icon">📦</div>
-          <div class="card-name">Lhamiel（ラミエル）</div>
-          <div class="card-desc">シンプル＆高速なアーカイブ圧縮・展開ツール。ドラッグ＆ドロップだけで快適に。二重フォルダの自動防止やマルチコア処理対応。</div>
-          <div class="card-tags">
-            <span class="tag">v1.0.86</span>
-            <span class="tag">MIT</span>
-            <span class="tag">C#</span>
-            <span class="tag">ZIP / 7z / RAR / LZH</span>
-          </div>
-          <a class="card-link" href="https://github.com/1llum1n4t1s/Lhamiel" target="_blank" rel="noopener">
-            GitHub でダウンロード
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
+      <!-- ── Windows Apps ── -->
+      <div class="tab-panel active" id="tab-windows">
+        <div class="section-header">
+          <div class="section-tag">Windows Applications</div>
+          <h2 class="section-title">デスクトップで動く4つのツール</h2>
+          <p class="section-desc">C#で開発したWindowsネイティブアプリ。すべてGitHubからダウンロードできます。</p>
         </div>
 
-        <div class="app-card reveal" data-accent="blue">
-          <div class="card-icon">🖱️</div>
-          <div class="card-name">IRUZ（居るぜ）</div>
-          <div class="card-desc">Teamsの退席判定をリセットするマウスジグルツール。SendInputベースで、カーソル位置は変わりません。起動即スタート。</div>
-          <div class="card-tags">
-            <span class="tag">v1.0.8</span>
-            <span class="tag">MIT</span>
-            <span class="tag">Native AOT</span>
-            <span class="tag">.NET不要</span>
+        <div class="app-grid">
+          <div class="app-card" data-accent="cyan">
+            <div class="card-icon">📦</div>
+            <div class="card-name">Lhamiel（ラミエル）</div>
+            <div class="card-desc">シンプル＆高速なアーカイブ圧縮・展開ツール。ドラッグ＆ドロップだけで快適に。二重フォルダの自動防止やマルチコア処理対応。</div>
+            <div class="card-tags">
+              <span class="tag">v1.0.86</span>
+              <span class="tag">MIT</span>
+              <span class="tag">C#</span>
+              <span class="tag">ZIP / 7z / RAR / LZH</span>
+            </div>
+            <a class="card-link" href="https://github.com/1llum1n4t1s/Lhamiel" target="_blank" rel="noopener">
+              GitHub でダウンロード
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </div>
-          <a class="card-link" href="https://github.com/1llum1n4t1s/IRUZ" target="_blank" rel="noopener">
-            GitHub でダウンロード
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
 
-        <div class="app-card reveal" data-accent="purple">
-          <div class="card-icon">📝</div>
-          <div class="card-name">MarkItDown.GUI</div>
-          <div class="card-desc">ドラッグ＆ドロップで様々なファイルをMarkdownに変換。Office文書・PDF・画像・音声に対応。Webスクレイピング＆Claude AI連携も。</div>
-          <div class="card-tags">
-            <span class="tag">v1.0.68</span>
-            <span class="tag">MIT</span>
-            <span class="tag">C# + Python</span>
-            <span class="tag">Claude AI</span>
+          <div class="app-card" data-accent="blue">
+            <div class="card-icon">🖱️</div>
+            <div class="card-name">IRUZ（居るぜ）</div>
+            <div class="card-desc">Teamsの退席判定をリセットするマウスジグルツール。SendInputベースで、カーソル位置は変わりません。起動即スタート。</div>
+            <div class="card-tags">
+              <span class="tag">v1.0.8</span>
+              <span class="tag">MIT</span>
+              <span class="tag">Native AOT</span>
+              <span class="tag">.NET不要</span>
+            </div>
+            <a class="card-link" href="https://github.com/1llum1n4t1s/IRUZ" target="_blank" rel="noopener">
+              GitHub でダウンロード
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </div>
-          <a class="card-link" href="https://github.com/1llum1n4t1s/MarkItDown.GUI" target="_blank" rel="noopener">
-            GitHub でダウンロード
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
 
-        <div class="app-card reveal" data-accent="emerald">
-          <div class="card-icon">✍️</div>
-          <div class="card-name">UltraMDmemo</div>
-          <div class="card-desc">自由入力のメモをボタン一つで構造化Markdownに変換。Claude Code CLIを自動セットアップ。Windows / macOS対応。</div>
-          <div class="card-tags">
-            <span class="tag">v1.0.10</span>
-            <span class="tag">MIT</span>
-            <span class="tag">Native AOT</span>
-            <span class="tag">Win / Mac</span>
+          <div class="app-card" data-accent="purple">
+            <div class="card-icon">📝</div>
+            <div class="card-name">MarkItDown.GUI</div>
+            <div class="card-desc">ドラッグ＆ドロップで様々なファイルをMarkdownに変換。Office文書・PDF・画像・音声に対応。Webスクレイピング＆Claude AI連携も。</div>
+            <div class="card-tags">
+              <span class="tag">v1.0.68</span>
+              <span class="tag">MIT</span>
+              <span class="tag">C# + Python</span>
+              <span class="tag">Claude AI</span>
+            </div>
+            <a class="card-link" href="https://github.com/1llum1n4t1s/MarkItDown.GUI" target="_blank" rel="noopener">
+              GitHub でダウンロード
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </div>
-          <a class="card-link" href="https://github.com/1llum1n4t1s/UltraMDmemo" target="_blank" rel="noopener">
-            GitHub でダウンロード
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
+
+          <div class="app-card" data-accent="emerald">
+            <div class="card-icon">✍️</div>
+            <div class="card-name">UltraMDmemo</div>
+            <div class="card-desc">自由入力のメモをボタン一つで構造化Markdownに変換。Claude Code CLIを自動セットアップ。Windows / macOS対応。</div>
+            <div class="card-tags">
+              <span class="tag">v1.0.10</span>
+              <span class="tag">MIT</span>
+              <span class="tag">Native AOT</span>
+              <span class="tag">Win / Mac</span>
+            </div>
+            <a class="card-link" href="https://github.com/1llum1n4t1s/UltraMDmemo" target="_blank" rel="noopener">
+              GitHub でダウンロード
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ════ Chrome Extensions ════ -->
-  <section id="chrome">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">Chrome Extensions</div>
-        <h2 class="section-title">ブラウザをもっと快適に</h2>
-        <p class="section-desc">Chrome Web Storeからワンクリックでインストール。</p>
       </div>
 
-      <div class="app-grid">
-
-        <div class="app-card reveal" data-accent="blue">
-          <div class="card-icon">📋</div>
-          <div class="card-name">プルリクMDコピー</div>
-          <div class="card-desc">GitHubとAzure DevOpsのPRタイトル・本文・レビューコメントをMarkdown形式でワンクリックコピー。レビュー議事録やAI連携に。</div>
-          <div class="card-tags">
-            <span class="tag">v1.0.12</span>
-            <span class="tag">無料</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Azure DevOps</span>
-          </div>
-          <a class="card-link" href="https://chromewebstore.google.com/detail/hmkmbahfdmkiccipfpajkjjefabcnjao" target="_blank" rel="noopener">
-            Chrome Web Store でインストール
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
+      <!-- ── Chrome Extensions ── -->
+      <div class="tab-panel" id="tab-chrome">
+        <div class="section-header">
+          <div class="section-tag">Chrome Extensions</div>
+          <h2 class="section-title">ブラウザをもっと快適に</h2>
+          <p class="section-desc">Chrome Web Storeからワンクリックでインストール。</p>
         </div>
 
-        <div class="app-card reveal" data-accent="cyan">
-          <div class="card-icon">🔤</div>
-          <div class="card-name">NotoSansへ置換するやつ（改修型）</div>
-          <div class="card-desc">読みづらいフォントをNoto Sans JPに自動置換。Shadow DOM対応で、YouTubeなどのモダンWebアプリも漏らさず置換。</div>
-          <div class="card-tags">
-            <span class="tag">v2.0.40</span>
-            <span class="tag">MIT</span>
-            <span class="tag">⭐ 5.0</span>
-            <span class="tag">高速＆軽量</span>
+        <div class="app-grid">
+          <div class="app-card" data-accent="blue">
+            <div class="card-icon">📋</div>
+            <div class="card-name">プルリクMDコピー</div>
+            <div class="card-desc">GitHubとAzure DevOpsのPRタイトル・本文・レビューコメントをMarkdown形式でワンクリックコピー。レビュー議事録やAI連携に。</div>
+            <div class="card-tags">
+              <span class="tag">v1.0.12</span>
+              <span class="tag">無料</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">Azure DevOps</span>
+            </div>
+            <a class="card-link" href="https://chromewebstore.google.com/detail/hmkmbahfdmkiccipfpajkjjefabcnjao" target="_blank" rel="noopener">
+              Chrome Web Store でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </div>
-          <a class="card-link" href="https://chromewebstore.google.com/detail/ipfbjlmjgfobhnncbggaaiknhdgkcdfe" target="_blank" rel="noopener">
-            Chrome Web Store でインストール
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
+
+          <div class="app-card" data-accent="cyan">
+            <div class="card-icon">🔤</div>
+            <div class="card-name">NotoSansへ置換するやつ（改修型）</div>
+            <div class="card-desc">読みづらいフォントをNoto Sans JPに自動置換。Shadow DOM対応で、YouTubeなどのモダンWebアプリも漏らさず置換。</div>
+            <div class="card-tags">
+              <span class="tag">v2.0.40</span>
+              <span class="tag">MIT</span>
+              <span class="tag">⭐ 5.0</span>
+              <span class="tag">高速＆軽量</span>
+            </div>
+            <a class="card-link" href="https://chromewebstore.google.com/detail/ipfbjlmjgfobhnncbggaaiknhdgkcdfe" target="_blank" rel="noopener">
+              Chrome Web Store でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="app-card" data-accent="purple">
+            <div class="card-icon">🌙</div>
+            <div class="card-name">帰ってきたDarkBlueテーマ(X)</div>
+            <div class="card-desc">X（旧Twitter）から廃止されたDarkBlue（Dim）テーマを復活。ダークテーマ（黒）を自動的にあの落ち着いたダークブルーに。</div>
+            <div class="card-tags">
+              <span class="tag">v1.0.6</span>
+              <span class="tag">無料</span>
+              <span class="tag">#15202B</span>
+              <span class="tag">SPA対応</span>
+            </div>
+            <a class="card-link" href="https://chromewebstore.google.com/detail/faoeaifiekkencilijamigcljnlaodkg" target="_blank" rel="noopener">
+              Chrome Web Store でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── NuGet Libraries ── -->
+      <div class="tab-panel" id="tab-nuget">
+        <div class="section-header">
+          <div class="section-tag">NuGet Libraries</div>
+          <h2 class="section-title">開発者向けライブラリ</h2>
+          <p class="section-desc">.NET 10 / NativeAOT対応のフォークライブラリ。NuGetからインストールできます。</p>
         </div>
 
-        <div class="app-card reveal" data-accent="purple">
-          <div class="card-icon">🌙</div>
-          <div class="card-name">帰ってきたDarkBlueテーマ(X)</div>
-          <div class="card-desc">X（旧Twitter）から廃止されたDarkBlue（Dim）テーマを復活。ダークテーマ（黒）を自動的にあの落ち着いたダークブルーに。</div>
-          <div class="card-tags">
-            <span class="tag">v1.0.6</span>
-            <span class="tag">無料</span>
-            <span class="tag">#15202B</span>
-            <span class="tag">SPA対応</span>
+        <div class="app-grid">
+          <div class="app-card" data-accent="purple">
+            <div class="card-icon">📂</div>
+            <div class="card-name">1llum1n4t1s.AlphaFS</div>
+            <div class="card-desc">Win32ファイルシステム機能を.NETに提供するAlphaFSのフォーク。260文字超の長いパス、ジャンクション・ハードリンク作成、トランザクショナルファイル操作に対応。</div>
+            <div class="card-tags">
+              <span class="tag">v1.0.30</span>
+              <span class="tag">NuGet</span>
+              <span class="tag">.NET 10</span>
+              <span class="tag">NTFS</span>
+            </div>
+            <a class="card-link" href="https://www.nuget.org/packages/1llum1n4t1s.AlphaFS/" target="_blank" rel="noopener">
+              NuGet でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </div>
-          <a class="card-link" href="https://chromewebstore.google.com/detail/faoeaifiekkencilijamigcljnlaodkg" target="_blank" rel="noopener">
-            Chrome Web Store でインストール
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
 
+          <div class="app-card" data-accent="blue">
+            <div class="card-icon">🎵</div>
+            <div class="card-name">1llum1n4t1s.NAudio</div>
+            <div class="card-desc">NAudioのフォーク版。.NET 10対応、プロセスループバックキャプチャ機能の追加、多数のバグ修正を含むオーディオライブラリ。</div>
+            <div class="card-tags">
+              <span class="tag">v1.0.40</span>
+              <span class="tag">NuGet</span>
+              <span class="tag">.NET 10</span>
+              <span class="tag">Audio</span>
+            </div>
+            <a class="card-link" href="https://www.nuget.org/packages/1llum1n4t1s.NAudio/" target="_blank" rel="noopener">
+              NuGet でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="app-card" data-accent="emerald">
+            <div class="card-icon">🗜️</div>
+            <div class="card-name">1llum1n4t1s.Sevenzip</div>
+            <div class="card-desc">7-ZipのCOMインターフェースを利用したラッパーライブラリ。アーカイブの圧縮・解凍機能を提供。NativeAOT対応。</div>
+            <div class="card-tags">
+              <span class="tag">v1.0.42</span>
+              <span class="tag">NuGet</span>
+              <span class="tag">.NET 10</span>
+              <span class="tag">NativeAOT</span>
+            </div>
+            <a class="card-link" href="https://www.nuget.org/packages/1llum1n4t1s.Sevenzip/" target="_blank" rel="noopener">
+              NuGet でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
 
       <!-- Features -->
@@ -649,71 +784,7 @@
           <div class="feature-desc">Native AOT / パフォーマンス最適化</div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <div class="divider"></div>
-
-  <!-- ════ NuGet Libraries ════ -->
-  <section id="nuget">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">NuGet Libraries</div>
-        <h2 class="section-title">開発者向けライブラリ</h2>
-        <p class="section-desc">.NET 10 / NativeAOT対応のフォークライブラリ。NuGetからインストールできます。</p>
-      </div>
-
-      <div class="app-grid">
-
-        <div class="app-card reveal" data-accent="purple">
-          <div class="card-icon">📂</div>
-          <div class="card-name">1llum1n4t1s.AlphaFS</div>
-          <div class="card-desc">Win32ファイルシステム機能を.NETに提供するAlphaFSのフォーク。260文字超の長いパス、ジャンクション・ハードリンク作成、トランザクショナルファイル操作に対応。</div>
-          <div class="card-tags">
-            <span class="tag">v1.0.30</span>
-            <span class="tag">NuGet</span>
-            <span class="tag">.NET 10</span>
-            <span class="tag">NTFS</span>
-          </div>
-          <a class="card-link" href="https://www.nuget.org/packages/1llum1n4t1s.AlphaFS/" target="_blank" rel="noopener">
-            NuGet でインストール
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <div class="app-card reveal" data-accent="blue">
-          <div class="card-icon">🎵</div>
-          <div class="card-name">1llum1n4t1s.NAudio</div>
-          <div class="card-desc">NAudioのフォーク版。.NET 10対応、プロセスループバックキャプチャ機能の追加、多数のバグ修正を含むオーディオライブラリ。</div>
-          <div class="card-tags">
-            <span class="tag">v1.0.40</span>
-            <span class="tag">NuGet</span>
-            <span class="tag">.NET 10</span>
-            <span class="tag">Audio</span>
-          </div>
-          <a class="card-link" href="https://www.nuget.org/packages/1llum1n4t1s.NAudio/" target="_blank" rel="noopener">
-            NuGet でインストール
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <div class="app-card reveal" data-accent="emerald">
-          <div class="card-icon">🗜️</div>
-          <div class="card-name">1llum1n4t1s.Sevenzip</div>
-          <div class="card-desc">7-ZipのCOMインターフェースを利用したラッパーライブラリ。アーカイブの圧縮・解凍機能を提供。NativeAOT対応。</div>
-          <div class="card-tags">
-            <span class="tag">v1.0.42</span>
-            <span class="tag">NuGet</span>
-            <span class="tag">.NET 10</span>
-            <span class="tag">NativeAOT</span>
-          </div>
-          <a class="card-link" href="https://www.nuget.org/packages/1llum1n4t1s.Sevenzip/" target="_blank" rel="noopener">
-            NuGet でインストール
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
-
-      </div>
     </div>
   </section>
 
@@ -724,9 +795,7 @@
         <div class="footer-brand">ゆろち</div>
         <div class="footer-links">
           <a href="https://github.com/1llum1n4t1s" target="_blank" rel="noopener">GitHub</a>
-          <a href="#windows">Windows アプリ</a>
-          <a href="#chrome">Chrome 拡張機能</a>
-          <a href="#nuget">NuGet ライブラリ</a>
+          <a href="about.html">About</a>
         </div>
       </div>
       <div class="footer-copy">
@@ -735,8 +804,25 @@
     </div>
   </footer>
 
-  <!-- ── Scroll reveal script ── -->
+  <!-- ── Tab switching & Scroll reveal ── -->
   <script>
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        document.getElementById('tab-' + target).classList.add('active');
+      });
+    });
+
+    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
