@@ -1,0 +1,19 @@
+@charset "utf-8";
+/*
+  Theme: Illuminatis
+  Author: szk (based on Hatena Blog Boilerplate)
+  Responsive: yes
+  Description:
+    1llum1n4t1s.github.io inspired dark-tech modern design theme.
+    Supports automatic dark/light mode switching via prefers-color-scheme.
+    1-column layout with card-style entries and sidebar grid below content.
+  Released under the MIT License.
+*/
+
+@import "normalize.css";
+
+@import "./lib/_variable";
+@import "./lib/_theme";
+@import "./lib/_animations";
+@import "./lib/_core";
+@import "./lib/_components";

@@ -1,0 +1,171 @@
+// ============================================================
+// Components - Illuminatis Theme
+// ============================================================
+
+// ── Category Tags (Pill Style) ──
+.categories {
+  a {
+    display: inline-block;
+    margin-right: 0.4em;
+    margin-bottom: 0.3em;
+    padding: 0.15em 0.7em;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.03em;
+    color: var(--accent-cyan);
+    background: var(--glow-cyan);
+    border: 1px solid rgba(34, 211, 238, 0.15);
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all $transition-base;
+    &:hover {
+      background: rgba(34, 211, 238, 0.12);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .categories a {
+    background: rgba(8, 145, 178, 0.06);
+    border-color: rgba(8, 145, 178, 0.2);
+  }
+}
+
+// ── Read More / Continue Reading Button ──
+.entry-see-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: 1em;
+  padding: 0.5em 1.2em;
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-decoration: none;
+  &:hover {
+    border-color: var(--accent-cyan);
+    background: var(--glow-cyan);
+    transform: translateY(-1px);
+  }
+  &::after {
+    content: '\2192';
+    transition: transform $transition-base;
+  }
+  &:hover::after {
+    transform: translateX(4px);
+  }
+}
+
+// ── Background Glow Effects (decorative) ──
+#container {
+  position: relative;
+  &::before {
+    content: '';
+    position: fixed;
+    top: -20%;
+    right: -15%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--glow-cyan) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+  &::after {
+    content: '';
+    position: fixed;
+    bottom: -15%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--glow-blue) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 25s ease-in-out infinite reverse;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+// ── Hatena Star ──
+.hatena-star-container {
+  margin: 0.5em 0;
+}
+
+// ── Social Buttons Area ──
+.social-buttons {
+  margin-top: 1em;
+}
+
+// ── Leave Comment Button Override ──
+.leave-comment-title {
+  display: inline-block;
+  background: var(--bg-card);
+  text-decoration: none;
+}
+
+// ── Hatena Subscribe Button Area ──
+.hatena-follow-button-box {
+  margin-top: 1em;
+  .hatena-follow-button-link {
+    padding: 0.4em 1em;
+    font-size: 0.8rem;
+    border-radius: $radius-sm;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all $transition-base;
+    &:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+  }
+}
+
+// ── Responsive Image Fotolife ──
+.hatena-fotolife {
+  max-width: 100%;
+  height: auto;
+  border-radius: $radius-sm;
+}
+
+// ── Entry Footer Tags ──
+.entry-categories {
+  margin-top: 0.5em;
+  a {
+    display: inline-block;
+    margin-right: 0.4em;
+    margin-bottom: 0.3em;
+    padding: 0.15em 0.6em;
+    font-size: 0.72rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all $transition-base;
+    &:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+    }
+  }
+}
+
+// ── Selection Color ──
+::selection {
+  background: rgba(34, 211, 238, 0.25);
+  color: var(--text-primary);
+}
+
+@media (prefers-color-scheme: light) {
+  ::selection {
+    background: rgba(8, 145, 178, 0.2);
+  }
+}

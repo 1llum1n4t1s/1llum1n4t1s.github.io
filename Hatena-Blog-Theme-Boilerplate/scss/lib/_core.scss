@@ -1,0 +1,966 @@
+// ============================================================
+// Core Styles - Illuminatis Theme (1-Column Layout)
+// ============================================================
+
+// ── Global ──
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+html,
+body {
+  font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-deep);
+  line-height: 1.7;
+}
+
+// Noise overlay
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: var(--noise-opacity);
+}
+
+// Custom scrollbar (Webkit)
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+// ── Links ──
+a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: color $transition-base;
+  &:hover {
+    color: var(--accent-blue);
+  }
+  &.keyword {
+    text-decoration: none;
+    border-bottom: 1px dotted var(--border);
+    color: var(--text-primary);
+  }
+}
+
+// ── Headings ──
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  line-height: 1.3;
+  font-weight: 600;
+  a {
+    color: var(--text-primary);
+    text-decoration: none;
+    &:hover {
+      color: var(--accent-cyan);
+    }
+  }
+}
+
+// ============================================================
+// Layout - 1 Column
+// ============================================================
+
+#container,
+#footer {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  @media #{$mq-sm} {
+    max-width: $container-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+// ── Layout: CSS Grid on #content-inner ──
+// Using display:contents on #box2/#box2-inner to flatten children,
+// then order to pull search box above articles.
+#content-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  @media #{$mq-sm} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Flatten #box2 wrappers so their children join the grid
+#box2,
+#box2-inner {
+  display: contents;
+}
+
+// Search box → top row, full width
+.hatena-module-search-box {
+  grid-column: 1 / -1;
+  order: -2;
+}
+
+// Article wrapper → second row, full width
+#wrapper {
+  grid-column: 1 / -1;
+  order: -1;
+}
+
+// Remaining sidebar modules (profile, links, etc.) fill grid naturally
+.hatena-module:not(.hatena-module-search-box) {
+  order: 0;
+}
+
+// Top page archive entries: 2-column card grid
+.archive-entries {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  @media #{$mq-sm} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Individual entry page: single column, centered
+#main-inner > .entry {
+  max-width: $content-max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ============================================================
+// Header
+// ============================================================
+
+#blog-title {
+  margin: 2.5rem 0;
+  text-align: center;
+  position: relative;
+  @media #{$mq-sm} {
+    margin: 3.5rem 0 2.5rem;
+  }
+}
+
+#title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  @media #{$mq-md} {
+    font-size: 2.2rem;
+  }
+  a {
+    color: var(--text-primary);
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+#blog-description {
+  font-weight: 300;
+  font-size: 0.85rem;
+  margin: 0.8rem 0 0;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+// Header image mode
+.header-image-enable {
+  #blog-title {
+    margin: 0 0 2em;
+  }
+  #blog-title-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #blog-title-content {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+// Title-below HTML area
+#top-editarea {
+  margin-bottom: 1.5em;
+}
+
+// Breadcrumb
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  a {
+    color: var(--text-secondary);
+  }
+}
+
+// ============================================================
+// Entry (Article) - Card Style
+// ============================================================
+
+.entry {
+  position: relative;
+  margin-bottom: 0; // gap is handled by grid
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: $radius-lg;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform $transition-card, box-shadow $transition-card;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  @media #{$mq-sm} {
+    padding: 1.8rem;
+  }
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+  // Gradient top accent line
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-accent-horizontal);
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.entry-header {
+  padding-bottom: 1em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.date {
+  margin-bottom: 0.5em;
+  font-size: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+  a {
+    color: var(--text-muted);
+    text-decoration: none;
+    &:hover {
+      color: var(--accent-cyan);
+    }
+  }
+}
+
+.entry-title {
+  margin: 0 0 0.3em;
+  font-size: 1.15rem;
+  font-weight: 600;
+  @media #{$mq-md} {
+    font-size: 1.25rem;
+  }
+  a {
+    transition: color $transition-base;
+    &:hover {
+      color: var(--accent-cyan);
+    }
+  }
+}
+
+.categories {
+  margin: 0.5em 0;
+  font-size: 0.8rem;
+}
+
+// Edit button
+.entry-header-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  a {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding: 0.3em 0.8em;
+    border: 1px solid var(--border);
+    border-radius: $radius-sm;
+    transition: all $transition-base;
+    &:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+    }
+  }
+}
+
+// ============================================================
+// Entry Content (Article Body)
+// ============================================================
+
+.entry-content {
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+    border-radius: $radius-sm;
+  }
+
+  // Headings with accent left border
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1.5em 0 0.8em 0;
+    padding-left: 0.8em;
+    border-left: 3px solid var(--accent-cyan);
+  }
+  h1 {
+    font-size: 1.5rem;
+    @media #{$mq-md} { font-size: 1.7rem; }
+  }
+  h2 {
+    font-size: 1.35rem;
+    @media #{$mq-md} { font-size: 1.5rem; }
+  }
+  h3 {
+    font-size: 1.15rem;
+    border-left-color: var(--accent-blue);
+    @media #{$mq-md} { font-size: 1.25rem; }
+  }
+  h4 {
+    font-size: 1.05rem;
+    border-left-color: var(--accent-purple);
+  }
+  h5 {
+    font-size: 1rem;
+    border-left-color: var(--accent-purple);
+  }
+  h6 {
+    font-size: 0.9rem;
+    border-left-color: var(--text-muted);
+  }
+
+  // Bold / Strong — highlighted marker style
+  strong, b {
+    color: var(--accent-cyan);
+    font-weight: 700;
+    background: var(--glow-cyan);
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+  }
+
+  // Lists
+  ul, ol, dd {
+    margin: 0 0 1em 1.5em;
+    padding: 0;
+    li {
+      margin-bottom: 0.3em;
+      ul, ol {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Tables
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 1.5em;
+    width: 100%;
+    overflow: auto;
+    display: block;
+    font-size: 0.85rem;
+    @media #{$mq-md} {
+      font-size: 0.9rem;
+    }
+  }
+  table th,
+  table td {
+    border: 1px solid var(--border);
+    padding: 0.6em 1em;
+  }
+  table th {
+    background: var(--bg-surface);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  // Blockquote
+  blockquote {
+    border: none;
+    border-left: 3px solid var(--accent-cyan);
+    margin: 0 0 1.5em;
+    padding: 1em 1.5em;
+    background: var(--bg-surface);
+    border-radius: 0 $radius-sm $radius-sm 0;
+    color: var(--text-secondary);
+    p:first-of-type { margin-top: 0; }
+    p:last-of-type { margin-bottom: 0; }
+  }
+
+  // Code blocks
+  pre,
+  code {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  pre {
+    background: var(--bg-code);
+    border: 1px solid var(--border-subtle);
+    border-radius: $radius-md;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    font-size: 0.85rem;
+    padding: 1.2em 1.5em;
+    color: var(--text-code);
+    overflow-x: auto;
+    & > code {
+      margin: 0;
+      padding: 0;
+      white-space: pre;
+      border: none;
+      background-color: transparent;
+      font-family: 'JetBrains Mono', monospace;
+      color: inherit;
+    }
+  }
+  code {
+    font-size: 0.88em;
+    margin: 0 2px;
+    padding: 0.15em 0.5em;
+    background-color: var(--bg-code-inline);
+    border-radius: 4px;
+    color: var(--accent-cyan);
+  }
+
+  // Horizontal rule
+  hr {
+    width: 60%;
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 2.5em auto;
+  }
+
+  // Table of contents
+  .table-of-contents {
+    padding: 1.2em 1.5em 1.2em 2.5em;
+    margin: 1.5em 0;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: $radius-md;
+    font-size: 0.9rem;
+    a {
+      color: var(--text-secondary);
+      &:hover {
+        color: var(--accent-cyan);
+      }
+    }
+  }
+}
+
+// ============================================================
+// Entry Footer
+// ============================================================
+
+.entry-footer {
+  margin-top: 1.5em;
+  .social-buttons {
+    margin-bottom: 1em;
+  }
+}
+
+.entry-footer-section {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  a {
+    color: var(--text-muted);
+    &:hover {
+      color: var(--accent-cyan);
+    }
+  }
+}
+
+// ============================================================
+// Comments
+// ============================================================
+
+.comment-box {
+  margin: 1.5em 0;
+  .comment {
+    list-style: none;
+    margin: 0 0 15px 0;
+    padding: 0;
+    line-height: 1.7;
+    font-size: 0.85rem;
+    @media #{$mq-sm} {
+      font-size: 0.9rem;
+    }
+  }
+  .entry-comment {
+    padding: 1.2em 1em 1.2em 70px;
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+    background: var(--bg-card);
+    border-radius: $radius-md;
+    margin-bottom: 0.8em;
+    &:first-child {
+      border-top: none;
+    }
+  }
+  .read-more-comments {
+    padding: 10px 0;
+  }
+  .hatena-id-icon {
+    position: absolute;
+    top: 1.2em;
+    left: 10px;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: $radius-sm;
+  }
+}
+
+.comment-user-name {
+  margin: 0 0 0.4em 0;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.comment-content {
+  margin: 0 0 0.4em 0;
+  word-wrap: break-word;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  p {
+    margin: 0 0 0.6em 0;
+  }
+}
+
+.comment-metadata {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  a {
+    color: var(--text-muted);
+    &:hover {
+      color: var(--accent-cyan);
+    }
+  }
+}
+
+.leave-comment-title {
+  padding: 0.8em 1.2em;
+  font-size: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: $radius-sm;
+  color: var(--accent-cyan);
+  transition: all $transition-base;
+  &:hover {
+    border-color: var(--accent-cyan);
+    background: var(--bg-surface);
+  }
+}
+
+// ============================================================
+// Pager
+// ============================================================
+
+.pager {
+  margin: 2.5em 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6em 1.2em;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: $radius-sm;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all $transition-base;
+    &:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+  }
+}
+
+// ============================================================
+// Sidebar Modules (Below main content in 1-column)
+// ============================================================
+
+.hatena-module {
+  box-sizing: border-box;
+  font-size: 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: $radius-lg;
+  padding: 1.5em;
+  transition: box-shadow $transition-base;
+  @media #{$mq-sm} {
+    font-size: 0.9rem;
+  }
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.hatena-module-title {
+  margin-bottom: 0.8em;
+  padding-bottom: 0.5em;
+  border-bottom: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  position: relative;
+  // Gradient underline
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--gradient-accent-horizontal);
+    border-radius: 1px;
+  }
+  a {
+    color: var(--text-primary);
+    text-decoration: none;
+    &:hover {
+      color: var(--accent-cyan);
+    }
+  }
+}
+
+// Profile module
+.hatena-module-profile {
+  .profile-icon {
+    float: left;
+    margin: 0 12px 12px 0;
+    border-radius: $radius-md;
+  }
+  .id {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    color: var(--text-primary);
+  }
+  .profile-description {
+    color: var(--text-secondary);
+    p {
+      margin-top: 0;
+    }
+  }
+}
+
+// URL list module
+.hatena-urllist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    padding: 0.5em 0;
+    border-bottom: 1px solid var(--border-subtle);
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color $transition-base;
+      &:hover {
+        color: var(--accent-cyan);
+      }
+    }
+  }
+  .urllist-category-link {
+    font-size: 0.7rem;
+    padding: 0.1em 0.4em;
+    background: var(--bg-code-inline);
+    border-radius: 3px;
+  }
+  .urllist-date-link a {
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+  }
+  .urllist-entry-body {
+    margin-top: 0.3em;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+}
+
+// Search module — Google-style standalone bar above articles
+.hatena-module-search-box {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+
+  // Reset card styles from .hatena-module
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  &:hover {
+    box-shadow: none;
+  }
+
+  // Hide "検索" title — the bar itself is self-explanatory
+  > .hatena-module-title {
+    display: none;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 999px; // pill shape
+    padding: 0.25em 0.5em;
+    box-shadow: var(--shadow-sm);
+    transition: border-color $transition-base, box-shadow $transition-base;
+
+    &:focus-within {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px var(--glow-cyan), var(--shadow-md);
+    }
+  }
+
+  .search-module-input {
+    flex: 1 1 auto;
+    padding: 0.6em 1em;
+    color: var(--text-primary);
+    background: none;
+    border: none;
+    outline: none;
+    height: 28px;
+    font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+    font-size: 0.95rem;
+    &::placeholder {
+      color: var(--text-muted);
+    }
+  }
+
+  .search-module-button {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    margin-right: 4px;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:none;%7D%3C/style%3E%3C/defs%3E%3Cpath d='M16.7,15l-3.4-3.3h-.1a5.4,5.4,0,0,0,.9-3.1,5.6,5.6,0,1,0-5.6,5.6,5.4,5.4,0,0,0,3.1-.9.1.1,0,0,0,.1.1L15,16.7a1.1,1.1,0,0,0,.8.3,1.6,1.6,0,0,0,.9-.3,1.4,1.4,0,0,0,0-1.7M8.5,12.3A3.8,3.8,0,0,1,4.8,8.5,3.8,3.8,0,0,1,8.5,4.7a3.9,3.9,0,0,1,3.8,3.8,3.8,3.8,0,0,1-3.8,3.8'/%3E%3Crect class='a' width='20' height='20'/%3E%3C/svg%3E") no-repeat center;
+    background-size: 20px 20px;
+    border: none;
+    outline: none;
+    color: transparent;
+    overflow: hidden;
+    opacity: 0.5;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: opacity $transition-base, background-color $transition-base;
+    &:hover {
+      opacity: 0.9;
+      background-color: var(--bg-surface);
+    }
+  }
+}
+
+// ============================================================
+// About Page
+// ============================================================
+
+.page-about {
+  .entry-content {
+    dt {
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 0.5em;
+      padding-bottom: 0.3em;
+      color: var(--text-primary);
+    }
+    dd {
+      margin-left: 0;
+      margin-bottom: 2em;
+      color: var(--text-secondary);
+    }
+  }
+}
+
+// ============================================================
+// Archive Page
+// ============================================================
+
+// ── Archive Entry Card (shared: top page + archive page) ──
+.archive-entry {
+  line-height: 1.4;
+  padding: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: $radius-lg;
+  box-shadow: var(--shadow-sm);
+  transition: transform $transition-card, box-shadow $transition-card;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+  // Gradient top accent line
+  &::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background: var(--gradient-accent-horizontal);
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.archive-entry-header {
+  padding: 1.2rem 1.5rem 0;
+}
+
+.archive-date {
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+  a {
+    color: var(--text-muted);
+    text-decoration: none;
+    &:hover {
+      color: var(--accent-cyan);
+    }
+  }
+}
+
+// Thumbnail for archive cards (high specificity to override Hatena defaults)
+.archive-entry .entry-thumb-link {
+  display: block;
+  overflow: hidden;
+  background: var(--bg-surface);
+  .entry-thumb {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-color: var(--bg-surface) !important;
+    border-radius: 0;
+    transition: transform 0.4s ease;
+  }
+  &:hover .entry-thumb {
+    transform: scale(1.03);
+  }
+}
+
+.archive-entry-body {
+  padding: 0 1.5rem 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-description {
+  margin: 0.5em 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  // Clamp to 3 lines
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Archive entry title (inside cards)
+.archive-entry .entry-title {
+  font-size: 1.05rem;
+  margin: 0.4em 0 0.2em;
+  font-weight: 600;
+  @media #{$mq-md} {
+    font-size: 1.1rem;
+  }
+  a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color $transition-base;
+    // Clamp to 2 lines
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    &:hover {
+      color: var(--accent-cyan);
+    }
+  }
+}
+
+.archive-entry .social-buttons {
+  margin-top: auto;
+  padding-top: 0.5em;
+}
+
+// ── Archive Header (category pages) ──
+.archive-header-category {
+  text-align: center;
+  color: var(--text-primary);
+}
+
+// ── Archive Page specific (monthly/category archive) ──
+.page-archive {
+  .archive-entries {
+    gap: 1.5rem;
+  }
+}
+
+// ============================================================
+// Footer
+// ============================================================
+
+#footer {
+  margin-top: 3em;
+  padding-top: 2em;
+  padding-bottom: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-subtle);
+  a {
+    color: var(--text-muted);
+    &:hover {
+      color: var(--accent-cyan);
+    }
+  }
+  p {
+    margin: 0.5em auto;
+  }
+}

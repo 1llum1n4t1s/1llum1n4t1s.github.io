@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:yule-test.hatenablog.com)",
+      "Bash(rtk npm install:*)",
+      "Bash(npm install:*)"
+    ]
+  }
+}

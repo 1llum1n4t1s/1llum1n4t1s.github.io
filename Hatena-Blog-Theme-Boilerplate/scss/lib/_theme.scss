@@ -1,0 +1,101 @@
+// ============================================================
+// Theme: Illuminatis - Dark/Light CSS Custom Properties
+// ============================================================
+
+// ── Light Mode (Default) ──
+:root {
+  // Backgrounds
+  --bg-deep: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-surface: #f1f5f9;
+
+  // Accent Colors
+  --accent-cyan: #0891b2;
+  --accent-blue: #2563eb;
+  --accent-purple: #7c3aed;
+  --accent-emerald: #059669;
+
+  // Text
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  // Borders
+  --border: #e2e8f0;
+  --border-subtle: rgba(100, 116, 139, 0.12);
+
+  // Shadows
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 20px 40px -5px rgba(0, 0, 0, 0.12);
+
+  // Glows
+  --glow-cyan: rgba(8, 145, 178, 0.08);
+  --glow-blue: rgba(37, 99, 235, 0.06);
+
+  // Code Block
+  --bg-code: #f1f5f9;
+  --bg-code-inline: rgba(100, 116, 139, 0.1);
+  --text-code: #0f172a;
+
+  // Gradients
+  --gradient-accent: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue), var(--accent-purple));
+  --gradient-accent-horizontal: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue), var(--accent-purple));
+
+  // Scrollbar
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-track: var(--bg-deep);
+
+  // Noise overlay opacity
+  --noise-opacity: 0.02;
+}
+
+// ── Dark Mode ──
+@media (prefers-color-scheme: dark) {
+  :root {
+    // Backgrounds
+    --bg-deep: #0a0e1a;
+    --bg-card: #111827;
+    --bg-card-hover: #1a2332;
+    --bg-surface: #0f1523;
+
+    // Accent Colors
+    --accent-cyan: #22d3ee;
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --accent-emerald: #34d399;
+
+    // Text
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+
+    // Borders
+    --border: #1e293b;
+    --border-subtle: rgba(148, 163, 184, 0.08);
+
+    // Shadows
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+    // Glows
+    --glow-cyan: rgba(34, 211, 238, 0.15);
+    --glow-blue: rgba(59, 130, 246, 0.12);
+
+    // Code Block
+    --bg-code: #0f1523;
+    --bg-code-inline: rgba(148, 163, 184, 0.12);
+    --text-code: #e2e8f0;
+
+    // Scrollbar
+    --scrollbar-thumb: #1e293b;
+    --scrollbar-track: #0a0e1a;
+
+    // Noise overlay opacity
+    --noise-opacity: 0.03;
+  }
+}
