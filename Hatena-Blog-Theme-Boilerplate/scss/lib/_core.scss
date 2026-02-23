@@ -114,6 +114,7 @@ h1, h2, h3, h4, h5, h6 {
 #wrapper {
   grid-column: 1 / -1;
   order: -1;
+  min-width: 0; // Prevent grid item from expanding beyond column width (fixes mobile overflow)
 }
 
 // Remaining sidebar modules (profile, links, etc.) fill grid naturally

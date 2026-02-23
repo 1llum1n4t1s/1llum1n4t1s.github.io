@@ -464,6 +464,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 #wrapper {
   grid-column: 1/-1;
   order: -1;
+  min-width: 0;
 }
 .hatena-module:not(.hatena-module-search-box) {
   order: 0;
@@ -1269,6 +1270,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 #container {
   position: relative;
+  z-index: 0;
 }
 #container::before {
   content: "";
