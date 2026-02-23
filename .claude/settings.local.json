@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "mcp__Claude_Preview__preview_start",
-      "Bash(where:*)"
+      "Bash(where:*)",
+      "Bash(rtk npm run build:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

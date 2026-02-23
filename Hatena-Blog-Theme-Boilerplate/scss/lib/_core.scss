@@ -1,5 +1,5 @@
 // ============================================================
-// Core Styles - Illuminatis Theme (1-Column Layout)
+// Core Styles - Illuminatis Theme (2-Column Layout)
 // ============================================================
 
 // ── Global ──
@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // ============================================================
-// Layout - 1 Column
+// Layout - 2 Column (Main + Sidebar)
 // ============================================================
 
 #container,
@@ -87,56 +87,75 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // ── Layout: CSS Grid on #content-inner ──
-// Using display:contents on #box2/#box2-inner to flatten children,
-// then order to pull search box above articles.
+// Mobile: 1-column with display:contents on #box2 to flatten sidebar modules.
+// Desktop (768px+): 2-column grid — main content + sidebar.
 #content-inner {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
   @media #{$mq-sm} {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr $sidebar-width;
+    align-items: start;
   }
 }
 
-// Flatten #box2 wrappers so their children join the grid
-#box2,
-#box2-inner {
+// Mobile: Flatten #box2 wrappers so their children join the single-column grid
+// Desktop: #box2 becomes the sidebar column
+#box2 {
   display: contents;
+  @media #{$mq-sm} {
+    display: block;
+  }
 }
 
-// Search box → top row, full width
+#box2-inner {
+  display: contents;
+  @media #{$mq-sm} {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+// Search box — mobile: top of page, full width; desktop: inside sidebar
 .hatena-module-search-box {
   grid-column: 1 / -1;
   order: -2;
+  @media #{$mq-sm} {
+    grid-column: auto;
+    order: 0;
+  }
 }
 
-// Article wrapper → second row, full width
+// Article wrapper — mobile: full width; desktop: main column
 #wrapper {
   grid-column: 1 / -1;
   order: -1;
-  min-width: 0; // Prevent grid item from expanding beyond column width (fixes mobile overflow)
+  min-width: 0; // Prevent grid item from expanding beyond column width
+  @media #{$mq-sm} {
+    grid-column: 1;
+    order: 0;
+  }
 }
 
-// Remaining sidebar modules (profile, links, etc.) fill grid naturally
+// Sidebar modules fill grid on mobile, stack in sidebar on desktop
 .hatena-module:not(.hatena-module-search-box) {
   order: 0;
 }
 
-// Top page archive entries: 2-column card grid
+// Top page archive entries: card grid (1-col mobile, 2-col on wide screens)
 .archive-entries {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  @media #{$mq-sm} {
+  @media #{$mq-md} {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-// Individual entry page: single column, centered
+// Individual entry page: full width within main column (sidebar provides balance)
 #main-inner > .entry {
-  max-width: $content-max-width;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: none;
 }
 
 // ============================================================
@@ -607,7 +626,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // ============================================================
-// Sidebar Modules (Below main content in 1-column)
+// Sidebar Modules (mobile: below main content; desktop: right sidebar)
 // ============================================================
 
 .hatena-module {
@@ -715,11 +734,19 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-// Search module — Google-style standalone bar above articles
+// Shared search icon SVGs (light = dark fill, dark = light fill)
+$search-icon-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%230f172a' d='M16.7,15l-3.4-3.3h-.1a5.4,5.4,0,0,0,.9-3.1,5.6,5.6,0,1,0-5.6,5.6,5.4,5.4,0,0,0,3.1-.9.1.1,0,0,0,.1.1L15,16.7a1.1,1.1,0,0,0,.8.3,1.6,1.6,0,0,0,.9-.3,1.4,1.4,0,0,0,0-1.7M8.5,12.3A3.8,3.8,0,0,1,4.8,8.5,3.8,3.8,0,0,1,8.5,4.7a3.9,3.9,0,0,1,3.8,3.8,3.8,3.8,0,0,1-3.8,3.8'/%3E%3C/svg%3E");
+$search-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23e2e8f0' d='M16.7,15l-3.4-3.3h-.1a5.4,5.4,0,0,0,.9-3.1,5.6,5.6,0,1,0-5.6,5.6,5.4,5.4,0,0,0,3.1-.9.1.1,0,0,0,.1.1L15,16.7a1.1,1.1,0,0,0,.8.3,1.6,1.6,0,0,0,.9-.3,1.4,1.4,0,0,0,0-1.7M8.5,12.3A3.8,3.8,0,0,1,4.8,8.5,3.8,3.8,0,0,1,8.5,4.7a3.9,3.9,0,0,1,3.8,3.8,3.8,3.8,0,0,1-3.8,3.8'/%3E%3C/svg%3E");
+
+// Search module — Google-style pill bar (mobile: centered above articles, desktop: in sidebar)
 .hatena-module-search-box {
   max-width: 600px;
   margin: 0 auto;
   width: 100%;
+  @media #{$mq-sm} {
+    max-width: none;
+    margin: 0;
+  }
 
   // Reset card styles from .hatena-module
   background: none;
@@ -745,6 +772,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 999px; // pill shape
     padding: 0.25em 0.5em;
     box-shadow: var(--shadow-sm);
+    overflow: hidden; // Prevent button overflow in narrow sidebar
     transition: border-color $transition-base, box-shadow $transition-base;
 
     &:focus-within {
@@ -755,6 +783,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .search-module-input {
     flex: 1 1 auto;
+    min-width: 0; // Allow flex shrink in narrow containers
     padding: 0.6em 1em;
     color: var(--text-primary);
     background: none;
@@ -773,7 +802,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 36px;
     height: 36px;
     margin-right: 4px;
-    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:none;%7D%3C/style%3E%3C/defs%3E%3Cpath d='M16.7,15l-3.4-3.3h-.1a5.4,5.4,0,0,0,.9-3.1,5.6,5.6,0,1,0-5.6,5.6,5.4,5.4,0,0,0,3.1-.9.1.1,0,0,0,.1.1L15,16.7a1.1,1.1,0,0,0,.8.3,1.6,1.6,0,0,0,.9-.3,1.4,1.4,0,0,0,0-1.7M8.5,12.3A3.8,3.8,0,0,1,4.8,8.5,3.8,3.8,0,0,1,8.5,4.7a3.9,3.9,0,0,1,3.8,3.8,3.8,3.8,0,0,1-3.8,3.8'/%3E%3Crect class='a' width='20' height='20'/%3E%3C/svg%3E") no-repeat center;
+    background: transparent $search-icon-light no-repeat center;
     background-size: 20px 20px;
     border: none;
     outline: none;
@@ -786,6 +815,81 @@ h1, h2, h3, h4, h5, h6 {
     &:hover {
       opacity: 0.9;
       background-color: var(--bg-surface);
+    }
+  }
+}
+
+// ── Search Result Page: style the in-content search form & hide sidebar duplicate ──
+// When a search-result exists in main content, hide the sidebar search module
+#content-inner:has(.search-result) .hatena-module-search-box {
+  display: none;
+}
+
+.search-result-form {
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25em 0.5em;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &:focus-within {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 3px var(--glow-cyan), var(--shadow-md);
+  }
+}
+
+.search-result-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.6em 1em;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  outline: none;
+  height: 28px;
+  font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+  font-size: 0.95rem;
+  &::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+.search-result-button {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  margin-right: 4px;
+  background: transparent $search-icon-light no-repeat center;
+  background-size: 20px 20px;
+  border: none;
+  outline: none;
+  color: transparent;
+  overflow: hidden;
+  opacity: 0.5;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: opacity $transition-base, background-color $transition-base;
+  &:hover {
+    opacity: 0.9;
+    background-color: var(--bg-surface);
+  }
+}
+
+// Dark mode: white search icons for both sidebar and search-result buttons
+@media (prefers-color-scheme: dark) {
+  .search-module-button,
+  .search-result-button {
+    background-image: $search-icon-dark;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
     }
   }
 }

@@ -436,7 +436,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 @media (min-width: 768px) {
   #container,
   #footer {
-    max-width: 1100px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 2rem;
@@ -450,21 +450,48 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 @media (min-width: 768px) {
   #content-inner {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 300px;
+    align-items: start;
   }
 }
-#box2,
+#box2 {
+  display: contents;
+}
+@media (min-width: 768px) {
+  #box2 {
+    display: block;
+  }
+}
 #box2-inner {
   display: contents;
+}
+@media (min-width: 768px) {
+  #box2-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }
 .hatena-module-search-box {
   grid-column: 1/-1;
   order: -2;
 }
+@media (min-width: 768px) {
+  .hatena-module-search-box {
+    grid-column: auto;
+    order: 0;
+  }
+}
 #wrapper {
   grid-column: 1/-1;
   order: -1;
   min-width: 0;
+}
+@media (min-width: 768px) {
+  #wrapper {
+    grid-column: 1;
+    order: 0;
+  }
 }
 .hatena-module:not(.hatena-module-search-box) {
   order: 0;
@@ -474,15 +501,13 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .archive-entries {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 #main-inner > .entry {
-  max-width: 780px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: none;
 }
 #blog-title {
   margin: 2.5rem 0;
@@ -1016,6 +1041,12 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   padding: 0;
   border-radius: 0;
 }
+@media (min-width: 768px) {
+  .hatena-module-search-box {
+    max-width: none;
+    margin: 0;
+  }
+}
 .hatena-module-search-box:hover {
   box-shadow: none;
 }
@@ -1032,6 +1063,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   border-radius: 999px;
   padding: 0.25em 0.5em;
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .hatena-module-search-box .search-form:focus-within {
@@ -1040,6 +1072,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 .hatena-module-search-box .search-module-input {
   flex: 1 1 auto;
+  min-width: 0;
   padding: 0.6em 1em;
   color: var(--text-primary);
   background: none;
@@ -1060,7 +1093,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   width: 36px;
   height: 36px;
   margin-right: 4px;
-  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:none;%7D%3C/style%3E%3C/defs%3E%3Cpath d='M16.7,15l-3.4-3.3h-.1a5.4,5.4,0,0,0,.9-3.1,5.6,5.6,0,1,0-5.6,5.6,5.4,5.4,0,0,0,3.1-.9.1.1,0,0,0,.1.1L15,16.7a1.1,1.1,0,0,0,.8.3,1.6,1.6,0,0,0,.9-.3,1.4,1.4,0,0,0,0-1.7M8.5,12.3A3.8,3.8,0,0,1,4.8,8.5,3.8,3.8,0,0,1,8.5,4.7a3.9,3.9,0,0,1,3.8,3.8,3.8,3.8,0,0,1-3.8,3.8'/%3E%3Crect class='a' width='20' height='20'/%3E%3C/svg%3E") no-repeat center;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%230f172a' d='M16.7,15l-3.4-3.3h-.1a5.4,5.4,0,0,0,.9-3.1,5.6,5.6,0,1,0-5.6,5.6,5.4,5.4,0,0,0,3.1-.9.1.1,0,0,0,.1.1L15,16.7a1.1,1.1,0,0,0,.8.3,1.6,1.6,0,0,0,.9-.3,1.4,1.4,0,0,0,0-1.7M8.5,12.3A3.8,3.8,0,0,1,4.8,8.5,3.8,3.8,0,0,1,8.5,4.7a3.9,3.9,0,0,1,3.8,3.8,3.8,3.8,0,0,1-3.8,3.8'/%3E%3C/svg%3E") no-repeat center;
   background-size: 20px 20px;
   border: none;
   outline: none;
@@ -1074,6 +1107,76 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 .hatena-module-search-box .search-module-button:hover {
   opacity: 0.9;
   background-color: var(--bg-surface);
+}
+#content-inner:has(.search-result) .hatena-module-search-box {
+  display: none;
+}
+.search-result-form {
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25em 0.5em;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.search-result-form:focus-within {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px var(--glow-cyan), var(--shadow-md);
+}
+.search-result-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.6em 1em;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  outline: none;
+  height: 28px;
+  font-family: "DM Sans", "Noto Sans JP", sans-serif;
+  font-size: 0.95rem;
+}
+.search-result-input::-moz-placeholder {
+  color: var(--text-muted);
+}
+.search-result-input::placeholder {
+  color: var(--text-muted);
+}
+.search-result-button {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  margin-right: 4px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%230f172a' d='M16.7,15l-3.4-3.3h-.1a5.4,5.4,0,0,0,.9-3.1,5.6,5.6,0,1,0-5.6,5.6,5.4,5.4,0,0,0,3.1-.9.1.1,0,0,0,.1.1L15,16.7a1.1,1.1,0,0,0,.8.3,1.6,1.6,0,0,0,.9-.3,1.4,1.4,0,0,0,0-1.7M8.5,12.3A3.8,3.8,0,0,1,4.8,8.5,3.8,3.8,0,0,1,8.5,4.7a3.9,3.9,0,0,1,3.8,3.8,3.8,3.8,0,0,1-3.8,3.8'/%3E%3C/svg%3E") no-repeat center;
+  background-size: 20px 20px;
+  border: none;
+  outline: none;
+  color: transparent;
+  overflow: hidden;
+  opacity: 0.5;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+.search-result-button:hover {
+  opacity: 0.9;
+  background-color: var(--bg-surface);
+}
+@media (prefers-color-scheme: dark) {
+  .search-module-button,
+  .search-result-button {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23e2e8f0' d='M16.7,15l-3.4-3.3h-.1a5.4,5.4,0,0,0,.9-3.1,5.6,5.6,0,1,0-5.6,5.6,5.4,5.4,0,0,0,3.1-.9.1.1,0,0,0,.1.1L15,16.7a1.1,1.1,0,0,0,.8.3,1.6,1.6,0,0,0,.9-.3,1.4,1.4,0,0,0,0-1.7M8.5,12.3A3.8,3.8,0,0,1,4.8,8.5,3.8,3.8,0,0,1,8.5,4.7a3.9,3.9,0,0,1,3.8,3.8,3.8,3.8,0,0,1-3.8,3.8'/%3E%3C/svg%3E");
+    opacity: 0.7;
+  }
+  .search-module-button:hover,
+  .search-result-button:hover {
+    opacity: 1;
+  }
 }
 .page-about .entry-content dt {
   font-weight: 600;
