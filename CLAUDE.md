@@ -9,7 +9,7 @@ This is a **GitHub Pages** static site (`https://1llum1n4t1s.github.io/`) with t
 1. **Portfolio site** — `index.html` (free software showcase), `about.html` (profile)
 2. **Hatena Blog theme "Illuminatis"** — `Hatena-Blog-Theme-Boilerplate/` builds a CSS file applied to `https://1llum1n4t1.org/`
 
-Detailed specs and past debugging notes are in `doc/PROJECT_OVERVIEW.md` and `doc/DEBUGGING_GUIDE.md`.
+Detailed specs and past debugging notes are in `doc/PROJECT_OVERVIEW.md` and `doc/DEBUGGING_GUIDE.md` (both written in Japanese).
 
 ## Build Commands
 
@@ -27,7 +27,7 @@ A Claude Preview dev server is configured in `.claude/launch.json`:
 - Server name: `static-server` (runs `node _server.js` on port 3000)
 - Default page: `_test_hatena_bg.html` (mock Hatena Blog DOM structure)
 
-Alternatively, the Vite dev server supports live-reloading against a real Hatena Blog:
+Alternatively, the Vite dev server supports live-reloading against a real Hatena Blog (requires `<script>`/`<link>` tags injected into the blog's `<head>` settings — see `Hatena-Blog-Theme-Boilerplate/README.md` for setup):
 ```bash
 cd Hatena-Blog-Theme-Boilerplate
 npm start -- 1llum1n4t1.org
@@ -46,8 +46,8 @@ npm start -- 1llum1n4t1.org
 | `_variable.scss` | SCSS variables: breakpoints, max-widths, border-radius, transitions |
 | `_theme.scss` | CSS Custom Properties for light/dark mode (auto-switches via `prefers-color-scheme`) |
 | `_animations.scss` | `@keyframes` — float (glow movement), fadeUp (scroll reveal), shimmer |
-| `_core.scss` | Layout, typography, entry cards, comments, pager, sidebar, footer (~970 lines) |
-| `_components.scss` | Category tags, background glows, buttons, Hatena-specific UI (~170 lines) |
+| `_core.scss` | Structural layout, typography, entry cards, comments, pager, sidebar, footer (~970 lines) |
+| `_components.scss` | Decorative/visual: category tags, background glows, buttons, Hatena-specific UI (~170 lines) |
 
 Import order in `boilerplate.scss`: normalize.css → _variable → _theme → _animations → _core → _components
 
@@ -61,7 +61,12 @@ Import order in `boilerplate.scss`: normalize.css → _variable → _theme → _
 
 - **Background glows**: `#container::before/::after` with `position: fixed`, `z-index: -1`, radial gradients. Requires `#container { z-index: 0 }` to create a stacking context (otherwise glows render behind `body` background).
 - **Grid overflow prevention**: `#wrapper` needs `min-width: 0` to prevent wide content (tables) from expanding beyond the grid column on mobile.
+- **`display: contents` caveat**: `#box2` and `#box2-inner` use `display: contents`, so styles applied directly to them (background, padding, border) have no visible effect. Style their children instead.
 - **Noise overlay**: `body::before` with SVG fractal noise, `position: fixed`, `z-index: 9999`.
+
+### CSS Custom Properties
+
+Theme colors are defined as `--` variables in `_theme.scss` on `:root`, with dark mode overrides via `@media (prefers-color-scheme: dark)`. When changing colors, always update both light and dark values. Key variables: `--bg-deep`, `--bg-card`, `--accent-cyan`, `--accent-blue`, `--text-primary`, `--glow-cyan`.
 
 ### Portfolio Site
 
