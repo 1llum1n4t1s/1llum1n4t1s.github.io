@@ -1,0 +1,39 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="100%" style="stop-color:#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22d3ee"/>
+      <stop offset="50%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="80%" cy="20%" r="40%">
+      <stop offset="0%" style="stop-color:rgba(34,211,238,0.15)"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="20%" cy="80%" r="35%">
+      <stop offset="0%" style="stop-color:rgba(59,130,246,0.12)"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <!-- トップライン -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+  <!-- テキスト -->
+  <text x="100" y="220" font-family="sans-serif" font-size="72" font-weight="700" fill="#f1f5f9">ゆろちの</text>
+  <text x="100" y="310" font-family="sans-serif" font-size="80" font-weight="700" fill="url(#accent)">フリーソフト</text>
+  <text x="100" y="380" font-family="sans-serif" font-size="28" font-weight="300" fill="#94a3b8">便利なWindows アプリ &amp; Chrome 拡張機能を、すべて無料で。</text>
+  <!-- スタッツ -->
+  <text x="100" y="480" font-family="monospace" font-size="48" font-weight="700" fill="#22d3ee">16</text>
+  <text x="200" y="480" font-family="sans-serif" font-size="22" fill="#64748b">アプリ &amp; ライブラリ</text>
+  <text x="500" y="480" font-family="monospace" font-size="48" font-weight="700" fill="#22d3ee">MIT</text>
+  <text x="620" y="480" font-family="sans-serif" font-size="22" fill="#64748b">オープンソース</text>
+  <text x="880" y="480" font-family="monospace" font-size="48" font-weight="700" fill="#22d3ee">¥0</text>
+  <text x="960" y="480" font-family="sans-serif" font-size="22" fill="#64748b">完全無料</text>
+  <!-- ドメイン -->
+  <text x="100" y="570" font-family="monospace" font-size="20" fill="#64748b">1llum1n4t1s.github.io</text>
+</svg>
