@@ -11,7 +11,7 @@ html {
 
 html,
 body {
-  font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+  font-family: 'DM Sans', 'IBM Plex Sans JP', sans-serif;
   color: var(--text-primary);
   background-color: var(--bg-deep);
   line-height: 1.7;
@@ -75,8 +75,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #container,
 #footer {
-  padding-left: 1.2rem;
-  padding-right: 1.2rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
   @media #{$mq-sm} {
     max-width: $container-max-width;
     margin-left: auto;
@@ -240,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: $radius-lg;
-  padding: 1.5rem;
+  padding: 1rem;
   box-shadow: var(--shadow-sm);
   transition: transform $transition-card, box-shadow $transition-card;
   overflow: hidden;
@@ -790,7 +790,7 @@ $search-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/
     border: none;
     outline: none;
     height: 28px;
-    font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+    font-family: 'DM Sans', 'IBM Plex Sans JP', sans-serif;
     font-size: 0.95rem;
     &::placeholder {
       color: var(--text-muted);
@@ -854,7 +854,7 @@ $search-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/
   border: none;
   outline: none;
   height: 28px;
-  font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+  font-family: 'DM Sans', 'IBM Plex Sans JP', sans-serif;
   font-size: 0.95rem;
   &::placeholder {
     color: var(--text-muted);
@@ -950,7 +950,10 @@ $search-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/
 }
 
 .archive-entry-header {
-  padding: 1.2rem 1.5rem 0;
+  padding: 1.2rem 1rem 0;
+  @media #{$mq-sm} {
+    padding: 1.2rem 1.5rem 0;
+  }
 }
 
 .archive-date {
@@ -988,7 +991,10 @@ $search-icon-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/
 }
 
 .archive-entry-body {
-  padding: 0 1.5rem 1.2rem;
+  padding: 0 1rem 1.2rem;
+  @media #{$mq-sm} {
+    padding: 0 1.5rem 1.2rem;
+  }
   flex: 1;
   display: flex;
   flex-direction: column;
