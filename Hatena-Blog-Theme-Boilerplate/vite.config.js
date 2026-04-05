@@ -6,7 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: ["scss/boilerplate.scss"],
       output: {
-        assetFileNames: ({ name }) => name,
+        assetFileNames: "[name][extname]",
       },
     },
     outDir: "build",

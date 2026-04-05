@@ -10,10 +10,10 @@
   Released under the MIT License.
 */
 
-@import "normalize.css";
+@use "normalize.css";
 
-@import "./lib/_variable";
-@import "./lib/_theme";
-@import "./lib/_animations";
-@import "./lib/_core";
-@import "./lib/_components";
+@use "./lib/variable";
+@use "./lib/theme";
+@use "./lib/animations";
+@use "./lib/core";
+@use "./lib/components";

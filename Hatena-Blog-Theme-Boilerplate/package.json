@@ -9,10 +9,13 @@
     "start": "node server.js",
     "build": "vite build"
   },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "devDependencies": {
-    "autoprefixer": "^10.4.17",
+    "autoprefixer": "^10.4.27",
     "normalize.css": "^8.0.1",
-    "sass": "^1.71.1",
-    "vite": "^5.1.4"
+    "sass": "^1.99.0",
+    "vite": "^8.0.3"
   }
 }

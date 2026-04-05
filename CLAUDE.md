@@ -19,7 +19,7 @@ npm install       # first time only
 npm run build     # SCSS → build/boilerplate.css
 ```
 
-Build uses Vite + Sass + autoprefixer. Output is **unminified** (`cssMinify: false`).
+Build uses Vite 8 + Sass (with `@use` module system) + autoprefixer. Output is **unminified** (`cssMinify: false`). Requires Node `^20.19.0 || >=22.12.0`.
 
 ## Local Preview
 
@@ -43,13 +43,13 @@ npm start -- 1llum1n4t1.org
 
 | File | Purpose |
 |------|---------|
-| `_variable.scss` | SCSS variables: breakpoints, max-widths, border-radius, transitions |
+| `_variable.scss` | SCSS variables: breakpoints, max-widths, border-radius (`$radius-sm/md/lg/pill`), transitions |
 | `_theme.scss` | CSS Custom Properties for light/dark mode (auto-switches via `prefers-color-scheme`) |
 | `_animations.scss` | `@keyframes` — float (glow movement), fadeUp (scroll reveal), shimmer |
 | `_core.scss` | Structural layout, typography, entry cards, comments, pager, sidebar, footer (~970 lines) |
 | `_components.scss` | Decorative/visual: category tags, background glows, buttons, Hatena-specific UI (~170 lines) |
 
-Import order in `boilerplate.scss`: normalize.css → _variable → _theme → _animations → _core → _components
+Load order in `boilerplate.scss` (uses `@use`, not `@import`): normalize.css → _variable → _theme → _animations → _core → _components. Files that need SCSS variables use `@use 'variable' as *` at the top.
 
 **Always edit SCSS sources**, not `build/boilerplate.css` (it's overwritten on build).
 
@@ -59,10 +59,12 @@ Import order in `boilerplate.scss`: normalize.css → _variable → _theme → _
 
 ### Key CSS Patterns
 
-- **Background glows**: `#container::before/::after` with `position: fixed`, `z-index: -1`, radial gradients. Requires `#container { z-index: 0 }` to create a stacking context (otherwise glows render behind `body` background).
+- **Background glows**: `#container::before/::after` with `position: fixed`, `z-index: -1`, radial gradients, `will-change: transform` for GPU layer promotion. Requires `#container { z-index: 0 }` to create a stacking context (otherwise glows render behind `body` background).
 - **Grid overflow prevention**: `#wrapper` needs `min-width: 0` to prevent wide content (tables) from expanding beyond the grid column on mobile.
 - **`display: contents` caveat**: `#box2` and `#box2-inner` use `display: contents`, so styles applied directly to them (background, padding, border) have no visible effect. Style their children instead.
-- **Noise overlay**: `body::before` with SVG fractal noise, `position: fixed`, `z-index: 9999`.
+- **Noise overlay**: `body::before` with SVG fractal noise, `position: fixed`, `z-index: 9999`, `transform: translateZ(0)` for GPU layer promotion.
+- **Search form DRY pattern**: `_core.scss` uses `%search-form-base`, `%search-input-base`, `%search-button-base` placeholders shared by `.search-form`/`.search-module-*` and `.search-result-form`/`.search-result-*` via `@extend`.
+- **Gradient text (Safari)**: `#title a` needs both `-webkit-text-fill-color: transparent` and `color: transparent` for cross-browser gradient text. Removing the `-webkit-` prefixed version breaks Safari/iOS.
 
 ### CSS Custom Properties
 
@@ -96,6 +98,12 @@ Accent colors available: `cyan`, `blue`, `purple`, `emerald`.
 - `768px` (min): tablet — triggers 2-column grid
 - `992px` (min): desktop
 - `1200px` (min): wide screen
+
+## Hatena Blog DOM Pitfalls
+
+Hatena Blog's actual DOM class names sometimes differ from what you'd expect. **Always verify class names against the live site** (`https://1llum1n4t1.org/`) using Chrome DevTools MCP before writing CSS selectors. Known examples:
+- Hatena Star container: actual class is `.star-container` (not `.hatena-star-container`)
+- Category links: actual class is `.archive-category-link` (not `.entry-category-link`)
 
 ## Temporary Files
 
