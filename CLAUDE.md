@@ -72,6 +72,17 @@ Theme colors are defined as `--` variables in `_theme.scss` on `:root`, with dar
 
 `index.html` and `about.html` have **self-contained inline CSS** in `<style>` tags. They share the same design system (colors, fonts, glows) as the Hatena theme but are independent files.
 
+## Adding a New App/Library to the Portfolio
+
+When adding a new product to `index.html`, update **all four** locations:
+
+1. **Card HTML** — Add an `<div class="app-card" data-accent="...">` inside the appropriate `tab-panel` (`#tab-chrome`, `#tab-windows`, `#tab-nuget`, or `#tab-websites`). Each card has: `.card-icon`, `.card-name`, `.card-desc`, `.card-tags`, and `.card-link`.
+2. **Structured data** — Add a `SoftwareApplication` entry to the JSON-LD `ItemList` in `<head>`, incrementing `position`.
+3. **Counts** — Update three numbers: `numberOfItems` in JSON-LD, `.stat-number` in the hero section, and the `<meta name="description">` product count.
+4. **Section description** — If the new product changes the scope of a section (e.g., adding non-fork libraries to the NuGet section), update the `<p class="section-desc">` text.
+
+Accent colors available: `cyan`, `blue`, `purple`, `emerald`.
+
 ## Deployment
 
 1. Run `npm run build` in `Hatena-Blog-Theme-Boilerplate/`

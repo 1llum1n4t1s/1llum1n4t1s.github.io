@@ -14,7 +14,7 @@
   <title>ゆろちのフリーソフト</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <meta name="description" content="便利なWindows アプリ & Chrome 拡張機能を、すべて無料で。オープンソース19プロダクトを公開中。">
+  <meta name="description" content="便利なWindows アプリ & Chrome 拡張機能を、すべて無料で。オープンソース22プロダクトを公開中。">
   <meta name="google-site-verification" content="71IHREaeTt0bL7EXdTv_j6XJ0v_jRv4GNOB6eXWs0Fs" />
   <link rel="canonical" href="https://1llum1n4t1s.github.io/" />
   <!-- OGP -->
@@ -53,7 +53,7 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "フリーソフト一覧",
-    "numberOfItems": 19,
+    "numberOfItems": 22,
     "itemListElement": [
       {
         "@type": "SoftwareApplication",
@@ -101,6 +101,36 @@
         "applicationCategory": "BrowserApplication",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
         "url": "https://chromewebstore.google.com/detail/lmkdjffdnkadifjjifameboongbngaep"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "position": 6,
+        "name": "CRDebugger.Avalonia",
+        "description": "Avalonia UIアプリ向けランタイムデバッグパネル",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+        "url": "https://www.nuget.org/packages/CRDebugger.Avalonia/"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "position": 7,
+        "name": "CRDebugger.WinForms",
+        "description": "WinFormsアプリ向けランタイムデバッグパネル",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+        "url": "https://www.nuget.org/packages/CRDebugger.WinForms/"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "position": 8,
+        "name": "CRDebugger.Wpf",
+        "description": "WPFアプリ向けランタイムデバッグパネル",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+        "url": "https://www.nuget.org/packages/CRDebugger.Wpf/"
       }
     ]
   }
@@ -654,7 +684,7 @@
         </p>
         <div class="hero-stats">
           <div class="stat">
-            <div class="stat-number">17</div>
+            <div class="stat-number">20</div>
             <div class="stat-label">アプリ & ライブラリ</div>
           </div>
           <div class="stat">
@@ -995,7 +1025,7 @@
         <div class="section-header">
           <div class="section-tag">NuGet Libraries</div>
           <h2 class="section-title">開発者向けライブラリ</h2>
-          <p class="section-desc">.NET 10 / NativeAOT対応のフォークライブラリ。NuGetからインストールできます。</p>
+          <p class="section-desc">.NET向けのデバッグツールやフォークライブラリ。NuGetからインストールできます。</p>
         </div>
 
         <div class="app-grid">
@@ -1040,6 +1070,63 @@
             </div>
             <a class="card-link" href="https://www.nuget.org/packages/1llum1n4t1s.Sevenzip/" target="_blank" rel="noopener">
               NuGet でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="app-card" data-accent="cyan">
+            <div class="card-icon">🛠️</div>
+            <div class="card-name">CRDebugger.Avalonia</div>
+            <div class="card-desc">Avalonia UIアプリ向けランタイムデバッグパネル。システム情報・リアルタイムログ・プロファイラ・リフレクションベースのオプションUIを実行中のアプリに組み込めます。</div>
+            <div class="card-tags">
+              <span class="tag">NuGet</span>
+              <span class="tag">Avalonia</span>
+              <span class="tag">デバッグ</span>
+            </div>
+            <a class="card-link" href="https://www.nuget.org/packages/CRDebugger.Avalonia/" target="_blank" rel="noopener">
+              NuGet でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a class="card-link" href="https://github.com/1llum1n4t1s/CRDebugger" target="_blank" rel="noopener" style="margin-top: 4px;">
+              GitHub
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="app-card" data-accent="blue">
+            <div class="card-icon">🛠️</div>
+            <div class="card-name">CRDebugger.WinForms</div>
+            <div class="card-desc">WinFormsアプリ向けランタイムデバッグパネル。システム情報・リアルタイムログ・プロファイラ・リフレクションベースのオプションUIを実行中のアプリに組み込めます。</div>
+            <div class="card-tags">
+              <span class="tag">NuGet</span>
+              <span class="tag">WinForms</span>
+              <span class="tag">デバッグ</span>
+            </div>
+            <a class="card-link" href="https://www.nuget.org/packages/CRDebugger.WinForms/" target="_blank" rel="noopener">
+              NuGet でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a class="card-link" href="https://github.com/1llum1n4t1s/CRDebugger" target="_blank" rel="noopener" style="margin-top: 4px;">
+              GitHub
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="app-card" data-accent="purple">
+            <div class="card-icon">🛠️</div>
+            <div class="card-name">CRDebugger.Wpf</div>
+            <div class="card-desc">WPFアプリ向けランタイムデバッグパネル。システム情報・リアルタイムログ・プロファイラ・リフレクションベースのオプションUIを実行中のアプリに組み込めます。</div>
+            <div class="card-tags">
+              <span class="tag">NuGet</span>
+              <span class="tag">WPF</span>
+              <span class="tag">デバッグ</span>
+            </div>
+            <a class="card-link" href="https://www.nuget.org/packages/CRDebugger.Wpf/" target="_blank" rel="noopener">
+              NuGet でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a class="card-link" href="https://github.com/1llum1n4t1s/CRDebugger" target="_blank" rel="noopener" style="margin-top: 4px;">
+              GitHub
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           </div>
