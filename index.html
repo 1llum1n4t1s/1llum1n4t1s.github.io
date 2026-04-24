@@ -705,7 +705,7 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/Lhamiel/main/src/Lhamiel/icon/app_icon.png" alt="Lhamiel"></div>
             <div class="card-name">Lhamiel（ラミエル）</div>
-            <div class="card-desc">D&Dで圧縮・展開できるアーカイブツール。ロック中ファイルの自動コピー圧縮、パスワード保護アーカイブ対応、二重ネスト防止、Windows風ファイル衝突ダイアログ、ディスク容量事前チェックを搭載。17言語対応＆Native AOTで.NET不要。</div>
+            <div class="card-desc">ファイルをウィンドウに<strong>D&Dするだけで自動で圧縮・展開が始まる</strong>シンプル高速アーカイブツール。ロック中ファイルを一時コピーして圧縮、暗号化ZIP/7z/RARのパスワード入力ダイアログ、二重ネスト防止、Windows風のファイル比較ダイアログ（サムネイル付き同名競合解決）、事前＆処理中のディスク容量チェック、破損アーカイブからの可能な限りのファイル救出、ファイル関連付け設定を搭載。ダーク/ライト/システム追従の3テーマ、17言語UI、Native AOTビルドで.NET不要、Velopackによる差分自動更新対応。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Native AOT</span>
@@ -721,7 +721,7 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/Komorebi/main/build/resources/app/komorebi-icon-1024.png" alt="Komorebi"></div>
             <div class="card-name">Komorebi</div>
-            <div class="card-desc">SourceGitをフォークしたクロスプラットフォームGit GUIクライアント。初回セットアップウィザード、Squash後の強制プッシュ、SSH鍵の3段フォールバック、AWS CodeCommit対応、OneDark/Whiteテーマを独自追加。17言語の翻訳率100%。</div>
+            <div class="card-desc">C# / .NET 10とAvalonia UI 12で構築された<strong>クロスプラットフォームGit GUIクライアント</strong>。SourceGitをフォークし、初回セットアップウィザード、OSロケール自動検出＋ロケール別フォント最適化、Squash/Fixup後の`--force-with-lease`強制プッシュ、ブランチ作成後の自動プッシュ、Staged/Unstaged配置入れ替え、リポジトリ自動スキャンを独自追加。SSH鍵管理UIは3段フォールバック（リモート個別→グローバル→ssh-agent）、AWS CodeCommitはHTTPS/SSH/git-remote-codecommitの3形式対応。OneDark/Whiteテーマ追加、タガログ/サンスクリット/ラテンを含む17言語で翻訳率100%、Velopack自動アップデート対応。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Avalonia 12</span>
@@ -737,7 +737,7 @@
           <div class="app-card" data-accent="blue">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/IRUZ/main/icon/app_icon.png" alt="IRUZ"></div>
             <div class="card-name">IRUZ（居るぜ）</div>
-            <div class="card-desc">Teams等の退席判定をリセットするマウスジグル常駐ツール。SendInputによる相対移動（±1px）でカーソル位置を維持、30/60/120/300秒の間隔選択、タスクトレイ常駐、起動時自動開始に対応。</div>
+            <div class="card-desc"><strong>Teams等の退席判定をリセットする</strong>常駐マウスジグラー。SendInputによる相対移動（`MOUSEEVENTF_MOVE` ±1px）で`GetLastInputInfo`を更新しつつカーソル位置は動かない設計。`SetCursorPos`では最終入力時刻が更新されないためSendInputを採用。間隔は30/60/120/300秒から選択（デフォルト60秒）、起動時自動開始、ウィンドウ最小化でタスクトレイ格納、トレイアイコンから表示/終了操作可能。Avalonia 11 + Actipro Controls + CommunityToolkit.Mvvm構成、Native AOTビルドで.NET不要、スタートアップフォルダに登録すればWindowsログイン時に自動起動。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Native AOT</span>
@@ -753,7 +753,7 @@
           <div class="app-card" data-accent="purple">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/MarkItDown.GUI/main/icon/app_icon.png" alt="MarkItDown.GUI"></div>
             <div class="card-name">MarkItDown.GUI</div>
-            <div class="card-desc">D&DでOffice/PDF/画像/音声をMarkdownに変換。Reddit/X/InstagramのWebスクレイピング、Claude AIによる整形・まとめ出力、Python/FFmpegをアプリ内に内包するポータブル設計。最大3ファイル並列処理で高速。</div>
+            <div class="card-desc"><strong>D&DでOffice / PDF / 画像 / 音声 / アーカイブ等の各種ファイルをMarkdownに変換</strong>。Reddit（JSON API高速取得）、X/Twitter（タイムライン全件＋画像オリジナル画質DL、セッション永続化）、Instagram（全投稿メディア一括DL、ブラウザCookie自動認証）、その他サイト（HTTP+Claudeガイド型でブラウザ起動なし、ページネーション対応）のWebスクレイピング機能内蔵。Python/FFmpeg/Node.js/Claude Code CLI等の依存を全てアプリ内`lib/`に格納するポータブル設計で、システムのPATH・レジストリ・既存Python環境に一切影響なし（アンインストールはフォルダ削除だけ）。Claude AI連携で『元データ/整形済/まとめ済』の3ファイル自動生成、最大3ファイル並列処理、起動時にPythonパッケージを自動更新。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Avalonia UI</span>
@@ -769,7 +769,7 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon">✍️</div>
             <div class="card-name">UltraMDmemo</div>
-            <div class="card-desc">自由入力のメモをワンクリックで構造化Markdownに変換。Claude Code CLI連携で高品質な文書を自動生成。</div>
+            <div class="card-desc">自由入力のラフメモを<strong>ワンクリックで構造化Markdownに変換</strong>する軽量メモツール。Claude Code CLIと連携して、箇条書き・見出し・表・強調・コードブロックなどを文脈に合わせて適切に整形した高品質な文書を自動生成。議事録・アイデアメモ・設計書ドラフトの清書を手作業抜きで一発完結できる。Native AOTビルドでWindows/macOS両対応、.NETランタイム不要で瞬時起動。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Native AOT</span>
@@ -784,7 +784,7 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/TurnOffTheDisplay/main/icon/app_icon.png" alt="ディスプレイ＠OFF"></div>
             <div class="card-name">ディスプレイ＠OFF</div>
-            <div class="card-desc">起動するだけでディスプレイをスタンバイモードに移行。5秒カウントダウン中はESCキーまたはキャンセルボタンで中止可能。AvaloniaへのWPF移行＋Native AOTで瞬時起動、Velopackによる自動アップデート対応。</div>
+            <div class="card-desc">起動するだけでディスプレイをWindowsの電源プランの『ディスプレイの電源を切る』と同等のスタンバイモードに移行する<strong>超シンプルツール</strong>。5秒のカウントダウン中はESCキーまたはキャンセルボタンでいつでも中止できるので誤操作も安心、席を離れる際や『PCは稼働させたままディスプレイだけ消したい』場面に最適。2008年から続く老舗ツールを2026年にAvalonia UI＋Native AOTで全面刷新し、WPF版から瞬時起動を実現。MVVMパターン（CommunityToolkit.Mvvm）採用、Velopackによる自動アップデート、Windows起動時のチェック対応、一般ユーザー権限で動作（管理者権限不要）。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Avalonia UI</span>
@@ -812,7 +812,7 @@
           <div class="app-card" data-accent="blue">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/ReviewForMD/main/icons/icon128.png" alt="プルリクMDコピー"></div>
             <div class="card-name">プルリクMDコピー</div>
-            <div class="card-desc">GitHub/Azure DevOpsのPRタイトル・本文・全レビューコメントを差分コード付きでMarkdownダウンロード。PR一覧からも直接取得可能。SharePoint Stream/Teams会議録画のVTT字幕トランスクリプト取得にも対応。</div>
+            <div class="card-desc">GitHub / Azure DevOpsのプルリクエストから、<strong>タイトル・本文・全レビューコメントを投稿者・日時・対象ファイルパス・差分コード付きで`.md`ファイルにダウンロード</strong>。PR一覧ページの各行にもボタンが追加されるのでPRを開かず一覧から直接取得可能、個別コメントだけをMDテキストとしてクリップボードコピーもできる。カスタムドメインのAzure DevOps（企業独自ドメイン）もURLパターン＋DOM構造のマルチシグナル判定（`bolt-*`/`repos-*` CSS等）で自動検出。おまけでSharePoint Stream / Teams会議録画ページの字幕トランスクリプトを`.vtt`ファイルで保存する機能も搭載、議事録生成やAI連携で大活躍。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">GitHub</span>
@@ -834,7 +834,7 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/replace-font/main/icons/icon-128x128.png" alt="NotoSansへ置換するやつ"></div>
             <div class="card-name">NotoSansへ置換するやつ（改修型）</div>
-            <div class="card-desc">読みづらい日本語フォントをNoto Sans JP（本文）とUDEV Gothic JPDOC（等幅）に自動置換。ゴシック/明朝/等幅を判別してデザイン意図を維持しつつ、Shadow DOM（YouTube等）も漏らさず置換。</div>
+            <div class="card-desc">ウェブサイト上の<strong>読みづらい日本語フォントを固定で置換</strong>する拡張機能。MSゴシック／メイリオ／Yu Gothic／システムフォント等を狙い撃ちで`Noto Sans JP`（本文）、`MSゴシック`/`Consolas`/`JetBrains Mono`等の等幅を`UDEV Gothic JPDOC`（BIZ UDゴシック＋JetBrains Monoベース、濁点・半濁点や『1/l』『0/O』の判別性◎）に自動置換。ゴシック/明朝/等幅を判別してデザイン意図を維持、Arial/Helvetica/Inter/system-ui等の欧文・システムフォントもカバー。一般的な拡張機能では対応が難しいShadow DOM内のフォント（YouTubeや各種モダンWebアプリ）も漏らさず置換、ページ表示速度への影響を徹底的に最適化。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">⭐ 5.0</span>
@@ -856,7 +856,7 @@
           <div class="app-card" data-accent="purple">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/DarkBlueThemeX/main/icons/icon.svg" alt="帰ってきたDarkBlueテーマ(X)"></div>
             <div class="card-name">帰ってきたDarkBlueテーマ(X)</div>
-            <div class="card-desc">X（旧Twitter）のダークテーマ（黒/Lights Out）を、かつて廃止された旧DarkBlue（Dim）テーマに自動変換。#15202Bベースの落ち着いた配色を復活。ポップアップからワンタッチON/OFF、SPAナビゲーション完全対応。</div>
+            <div class="card-desc"><strong>X（旧Twitter）のダークテーマ（黒/Lights Out）を、かつて廃止された旧DarkBlue（Dim）テーマに自動変換</strong>するChrome拡張機能。背景メイン`#15202B`、カード/モーダル`#192734`、ホバー`#22303C`、ボーダー`#38444D`、アクセント`#1D9BF0`といったかつての配色をそっくり復元し、目に優しい落ち着いたダークブルーの世界を取り戻せる。拡張機能のポップアップからワンタッチでON/OFF切替（デフォルトON）、ライトテーマ利用者には影響しない安全設計、SPAナビゲーション・動的コンテンツに完全対応。Chrome 110以上、個人情報の収集は一切なし。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">#15202B</span>
@@ -902,7 +902,7 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/CleanReload/main/icons/icon.svg" alt="Clean Reload"></div>
             <div class="card-name">Clean Reload</div>
-            <div class="card-desc">ワンクリックでService Worker登録の解除、CacheStorageの削除、HTTPキャッシュバイパスを自動実行して完全リロード。Ctrl+Shift+Rのスーパーリロードでは消えないキャッシュまで一括クリーンアップ。activeTab権限のみ。</div>
+            <div class="card-desc">ツールバーのアイコンをクリックするだけで、<strong>Service Worker登録の全解除 → CacheStorage内のキャッシュ全削除 → HTTPキャッシュバイパスでリロード</strong>、を自動実行する徹底クリーンリロード拡張機能。通常のスーパーリロード（Ctrl+Shift+R）ではクリアされないService Worker登録やCacheStorageまで含めて完全リセットするので、PWA開発時の動作確認、サイト更新が反映されない不具合調査、古いService Workerの残骸トラブルなどで『なんで変わらないの！』となったときの特効薬になる拡張機能。権限はactiveTab（クリック時のアクティブタブのみ）とbrowsingData（該当オリジンのみ削除）の最小構成。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Service Worker</span>
@@ -924,7 +924,7 @@
           <div class="app-card" data-accent="purple">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/RaindropShortcut/main/icons/icon.svg" alt="Raindrop Shortcuts"></div>
             <div class="card-name">Raindrop Shortcuts</div>
-            <div class="card-desc">Raindrop.ioのブックマークをツールバーからワンクリック表示。タイトル・ドメインのインクリメンタル検索、コレクション切替、OS追従ダークモード対応。ローカルキャッシュで即時表示＋バックグラウンド差分更新、OAuth 2.0でパスワード不要。</div>
+            <div class="card-desc"><strong>Raindrop.ioのブックマークをツールバーからワンクリックで一覧表示</strong>するChrome拡張機能。タイトル・ドメイン名でのインクリメンタル検索（リアルタイム絞り込み）、表示するフォルダ（コレクション）の切替、リンクの開き方（新しいタブ/現在のタブ）を設定可能。OS設定に自動追従＋手動切替のダークモード、直近のブックマークはローカルキャッシュから即時表示してバックグラウンドで差分更新するハイブリッド方式で体感速度も快適。OAuth 2.0認証なのでパスワードは拡張機能に入力不要、個人情報の収集・外部送信は一切なし（favicon画像取得のためブックマークのドメイン名のみGoogle Favicon Serviceへ送信）。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Raindrop.io</span>
@@ -946,7 +946,7 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/ReplaceFontSelect/main/icons/icon.svg" alt="目に優しいフォント置換"></div>
             <div class="card-name">目に優しいフォント置換</div>
-            <div class="card-desc">9種類のフォント（本文6種＋等幅3種）から選んで自動置換。Noto Sans JP/IBM Plex Sans JP/M PLUS 2/LINE Seed JP/UDEV Gothic/PlemolJP等を同梱。本文は太さ（Regular/Medium）も選択可、Chrome/Firefox両対応、Shadow DOM対応。</div>
+            <div class="card-desc">ウェブサイトの読みづらいフォントを<strong>9種類から選んで自動置換</strong>するChrome / Firefox拡張機能。本文フォント6種（Noto Sans JP / IBM Plex Sans JP / M PLUS 2 / Murecho / Zen Kaku Gothic New / LINE Seed JP）と等幅フォント3種（UDEV Gothic JPDOC / PlemolJP / Moralerspace Neon JPDOC）を全て拡張機能内に同梱、すべてSIL OFL 1.1ライセンス。本文はRegular / Mediumの太さも選択可（Boldはそのまま維持）、等幅はRegular固定。ゴシック/明朝/等幅を判別してデザイン意図を維持しつつShadow DOM内（YouTube等のモダンWebアプリ）も漏らさず置換、置換フォントが持たないグリフ（アラビア文字・タイ文字等）はCSS cascadeで元サイト指定のフォントへ自動フォールバック。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">9フォント同梱</span>
@@ -968,7 +968,7 @@
           <div class="app-card" data-accent="blue">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/SearchClock/main/icons/icon.svg" alt="SearchClock"></div>
             <div class="card-name">SearchClock</div>
-            <div class="card-desc">Google検索の期間指定（3時間〜3年の11プリセット）を固定化。declarativeNetRequestでURLを検索前にインターセプトするので二重ロードなし。Google側での期間変更は後勝ちで拡張機能を自動オフ、ライト/ダークテーマ自動追従。</div>
+            <div class="card-desc"><strong>Google検索の期間指定を固定化する</strong>Chrome拡張機能。一度期間を設定すれば以降のGoogle検索に自動適用されるので、毎回『ツール』メニューから期間を選び直す面倒が完全に消滅、常に新しい情報だけを表示できる。プリセットはオフ / 3時間 / 12時間 / 1日 / 3日 / 1週間 / 1ヶ月 / 3ヶ月 / 半年 / 1年 / 3年の11段階。`declarativeNetRequest`でURLを検索前にインターセプトして書き換えるため、二重ローディングなしの高速動作。Google検索のツールで期間を変更すると拡張機能は自動でオフ、拡張機能で変更するとGoogle側がクリアされる『後勝ち』連携、検索結果上部のインラインパネル＋ポップアップの両方から操作可能、Googleのライト/ダークテーマにも自動追従。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Google検索</span>
@@ -990,7 +990,7 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/WebRestrictionRemoval/main/icons/icon.svg" alt="WEB制限解除サポート"></div>
             <div class="card-name">WEB制限解除サポート</div>
-            <div class="card-desc">右クリック・テキスト選択の制限を自動解除し、右クリックメニューから強制ペースト／強制コピーを実行可能。SharePoint/Box向けセッション維持（1〜15分）、Excel Online/Google Docs等の独自右クリックを尊重するカスタム許可リストも搭載。</div>
+            <div class="card-desc"><strong>右クリック・テキスト選択を禁止するスクリプトを無効化してWebページの制限を自動解除</strong>、さらに右クリックメニューから強制ペースト（編集可能な入力欄）／強制コピー（テキスト選択中）を実行できる拡張機能。v1.0.14〜はSharePoint / Box等のセッションタイムアウトを緩和する『セッション維持』機能搭載——合成アクティビティ（mousemove/pointermove/scroll/focus）の定期dispatchと、SharePointでは`/_api/web`、その他サイトでは現在URL/origin rootへの`HEAD`で1〜15分（デフォルト4分）間隔で維持。v1.1.0〜はExcel Online / Google Docs / Notion / Figma等、サイト側が独自の右クリックメニューを提供するSaaSで`contextmenu`/`selectstart`ブロックをスキップする『カスタム許可リスト』機能も追加、主要SaaSは組み込み済み。外部サーバー通信なし。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">強制ペースト</span>
@@ -1012,7 +1012,7 @@
           <div class="app-card" data-accent="purple">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/EvidenceShot/main/icons/icon.svg" alt="EvidenceShot"></div>
             <div class="card-name">EvidenceShot</div>
-            <div class="card-desc">Webテスト向けのタブ撮影拡張。「表示中のみ」「ページ全体（レイアウト込み）」「中央本文のみ」の3モードでスクロール連結撮影。PNG/JPEG/WEBP出力、タイムスタンプ＋左下固定テキスト（社外秘/COPYRIGHT等）の埋め込み対応。</div>
+            <div class="card-desc"><strong>Webテスト向けにタブの表示内容を撮影・保存する</strong>Chrome拡張機能。撮影モードは『表示中のみ（1画面）』『ページ全体（レイアウト込み、左右カラム含めてスクロール連結）』『中央本文のみ（主カラム優先連結）』の3種を切替可能。保存形式はPNG / JPEG / WEBPから選択、タイムスタンプ（デザイン・サイズ選択可）や左下固定テキスト（例: 社外秘／COPYRIGHT）の埋め込みにも対応し、証跡エビデンスとしてそのまま提出できる。撮影開始はポップアップからのみで常時の`<all_urls>`権限やフローティングボタンは使わない控えめ設計、http / httpsページのみ対応、撮影中に増えたコンテンツは対象外（撮影開始時点のスクロール範囲末尾まで）。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">3モード撮影</span>
@@ -1034,7 +1034,7 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/CleanStart/main/icons/icon-128.png" alt="Clean Start"></div>
             <div class="card-name">Clean Start</div>
-            <div class="card-desc">履歴・キャッシュ・Cookie・CacheStorage・ServiceWorkerをポップアップから一括削除。削除期間は1時間〜全期間から選択、2段階タップで誤操作防止、Chrome起動時の自動クリーンアップ対応。host_permissions不要でbrowsingData権限のみ。</div>
+            <div class="card-desc"><strong>履歴・キャッシュ・Cookie・CacheStorage・Service Worker等のサイト保存データをポップアップから一括削除</strong>するChrome拡張機能。削除対象期間はLast Hour / Last Day / Last Week / Last 4 Weeks / Everythingから選択、ポップアップ内で削除種別のチェックボックスをそのまま確認・変更可能。誤クリック防止のためClearボタンは2段階タップ方式（1回目で『もう一度タップで削除』状態、5秒以内の2回目押下で実行）で、うっかり全削除の事故を防ぐ。Chrome起動時に自動削除を実行してから通常のWebタブを順次リロードする使い方にも対応、削除後のアクティブタブ自動再読み込みオプションも搭載。host_permissions不要で`browsingData`権限のみ動作する身軽設計、Cookieはサイト全体の一括削除のみ。</div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">browsingData</span>
@@ -1067,7 +1067,7 @@
           <div class="app-card" data-accent="purple">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/1llum1n4t1s.AlphaFS/main/icon/app_icon.png" alt="1llum1n4t1s.AlphaFS"></div>
             <div class="card-name">1llum1n4t1s.AlphaFS</div>
-            <div class="card-desc">2024年にアーカイブされた本家AlphaFSを継続保守する.NET 10対応フォーク。260文字超の拡張長パス、ジャンクション／ハードリンク、代替データストリーム、トランザクショナルNTFS（TxF）、SMB/DFSネットワークアクセスに対応。COM Interop実装を刷新。</div>
+            <div class="card-desc"><strong>2024年12月にアーカイブされた本家AlphaFSを継続保守する.NET 10対応フォーク</strong>。260文字超の拡張長パス（最大32,000文字）、ジャンクション／ハードリンクの作成、NTFS代替データストリーム（ファイル・フォルダ両方）、トランザクショナルNTFS（TxF / KTM）による原子的ファイル操作、SMB / DFSネットワークリソースへのアクセス、隠しボリューム/ボリューム列挙、ファイル/フォルダ列挙のカスタムフィルタ＆アクセス拒否時のエラー回復、先頭/末尾に空白を含むフォルダ名へのアクセスなど、標準`System.IO`では届かないWin32ファイルシステム機能を包括的に提供。`using System.IO;`を`using Alphaleonis.Win32.Filesystem;`に置き換えるだけで基本ドロップイン互換、COM Interop実装は.NET 10 / NativeAOT対応のため全面刷新済み。</div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">.NET 10</span>
@@ -1083,7 +1083,7 @@
           <div class="app-card" data-accent="blue">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/1llum1n4t1s.NAudio/main/icon/app_icon.png" alt="1llum1n4t1s.NAudio"></div>
             <div class="card-name">1llum1n4t1s.NAudio</div>
-            <div class="card-desc">NAudioの.NET 10対応フォーク。本家で未マージのプロセス指定ループバックキャプチャを追加実装、多数のバグ修正を反映。本家APIと完全互換なのでドロップイン置換可能、Windows x64ランタイム対応。</div>
+            <div class="card-desc">Mark Heath氏による本家<strong>NAudioの.NET 10対応フォーク</strong>。net10.0 / net10.0-windowsをターゲットに更新、Windows x64ランタイム対応。本家でマージされていなかった『特定プロセスを指定してのループバックキャプチャ』（ProcessLoopbackCapture）を独自実装、他アプリの音声だけを選択的に録音可能に。加えて多数のバグ修正を反映しているため本家と動作が異なる場合もあり。公開API・名前空間は本家と完全互換なので、既存のNAudioコードに対する<strong>ドロップイン置換として使える</strong>うえ、本家のドキュメント・StackOverflow回答・チュートリアル（`tag:naudio`）・サンプルコードがそのまま適用可能。再生/録音/各種ファイル形式/オーディオ加工/MIDI等の包括的機能も本家そのまま。</div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">.NET 10</span>
@@ -1099,7 +1099,7 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/1llum1n4t1s.Sevenzip/main/icon/app_icon.png" alt="1llum1n4t1s.Sevenzip"></div>
             <div class="card-name">1llum1n4t1s.Sevenzip</div>
-            <div class="card-desc">Cube.FileSystem.SevenZipをフォークし、7-Zip 26.00を同梱した.NET 10/NativeAOT対応ラッパー。ArchiveWriter.Update()による既存アーカイブの追加・置換・削除、Stream API、per-file進捗、AtomicSave等のクラッシュ耐性オプション搭載。Win x64/arm64対応。</div>
+            <div class="card-desc"><strong>Cube.FileSystem.SevenZipをフォーク</strong>し、7-Zip 26.00のネイティブバイナリを直接同梱した.NET 10 / NativeAOT対応ラッパーライブラリ。COM Interopを`[GeneratedComInterface]`、P/Invokeを`[LibraryImport]`に全面移行し、Windows x64 / arm64の両RIDに対応（Managedアセンブリは単一AnyCPU）。本家に比べ、`ArchiveWriter.Update()`/`Remove()`による既存アーカイブの追加・置換・削除、ロック中ファイルの自動コピー圧縮、Reader側CodePage/`Encoding`対応、`ArchiveReader(Stream)`/`ArchiveWriter.Save(Stream)`等のStream API、`FileExtracting`/`FileCompressed`のper-file進捗イベント、`CustomParameters`/`VolumeSize`/`IncludeEmptyDirectories`等の柔軟な圧縮オプション、`AtomicSave`/`FlushToDisk`/`KeepBackupOnUpdate`等のクラッシュ耐性オプション、`ArchiveUpdateException`構造化例外などを追加。ビルド時のネットワークアクセスなしで決定論的ビルド保証。</div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">.NET 10</span>
@@ -1115,7 +1115,7 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/CRDebugger/main/icon/app_icon.png" alt="CRDebugger"></div>
             <div class="card-name">CRDebugger</div>
-            <div class="card-desc">Unity SRDebuggerに着想を得たランタイムデバッグパネル。1パッケージでAvalonia/WinForms/WPFに対応。System情報、Console（フィルタ/検索/重複折りたたみ）、Options（リフレクション自動UI）、Profiler（GC/FPS/ロジック単位）、スクショ付きBug Reporterを搭載。</div>
+            <div class="card-desc">Unity向け<strong>SRDebuggerに着想を得たランタイムデバッグパネル</strong>。NuGetパッケージ1本で WinForms / WPF / Avalonia のいずれにも組み込み可能、F1〜F5のショートカットで即呼び出し。『System』はOS/CPU/メモリ/.NETランタイム/プロセス情報を一覧表示、『Console』はフィルタ（Debug/Info/Warning/Error）＋テキスト検索＋スタックトレース＋重複ログ折りたたみのリッチテキスト対応ログ、『Options』はリフレクション＋`[CRDescription]`/`[CRColor]`等の属性によるプロパティの自動UI生成＋カテゴリ折りたたみ＋非同期アクションボタン、『Profiler』はメモリ/GC Gen0-2/FPS/ロジック単位プロファイリング（CPU/メモリ/処理時間/ネットワーク/ストレージ/GPU）、『Bug Reporter』はスクショ付きバグレポート送信を搭載。ダーク/ライト/システム追従の3テーマ、ピン📌ボタンで常に前面固定、ホストアプリをクラッシュさせない安全設計。</div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">Avalonia / WinForms / WPF</span>
@@ -1135,7 +1135,7 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/LlmChamber/main/icon/app_icon.png" alt="LlmChamber"></div>
             <div class="card-name">LlmChamber</div>
-            <div class="card-desc">NuGet一発でローカルLLMを.NETアプリに組み込めるライブラリ。Ollamaバイナリとモデルをアプリローカルに自動配置し環境汚染なし、Nvidia(CUDA)/AMD(ROCm)/Intel/NPUを自動検出。IAsyncEnumerableでストリーミング、WPF/Avalonia/WinForms/MAUI用チャットUI付属。</div>
+            <div class="card-desc">『<strong>NuGet一発、ゼロ設定、環境汚染なし</strong>』をコンセプトにローカルLLMを.NETアプリに組み込める統合ライブラリ。`dotnet add package LlmChamber`だけで動作、Python不要・グローバルインストール不要。Ollamaバイナリとモデル（デフォルトはGemma 4 E2B）は初回実行時にアプリローカルへ自動DL＆キャッシュ、2回目以降はキャッシュから即座に起動。Nvidia（CUDA）/ AMD（ROCm）/ Intel / NPUを自動検出して最適なバイナリを選択。型安全なC# APIで`IAsyncEnumerable<string>`によるストリーミング応答、会話履歴を自動管理する`ChatSession`、`services.AddLlmChamber()`によるDI統合、`HttpClient`をKeyed Servicesで差し替え可能（プロキシ・証明書等の企業環境対応）。WPF / Avalonia / WinForms / .NET MAUI用のチャットコントロールを同梱。</div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">.NET 8 / 10</span>
@@ -1155,7 +1155,7 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/SuperLightLogger/main/icon/app_icon.png" alt="SuperLightLogger"></div>
             <div class="card-name">SuperLightLogger</div>
-            <div class="card-desc">log4net/NLogコードを`using`の置換だけでMicrosoft.Extensions.Loggingへ卒業できる超軽量互換シム。Serilog/OpenTelemetry/Application Insights等のシンクが設定だけで使える。NLog互換のファイルローテーション内蔵、NativeAOT対応で2.6MB単一EXEで動作実証済み。</div>
+            <div class="card-desc">『<strong>log4netやNLogを`using`を1行書き換えるだけで卒業できる</strong>』をコンセプトにした超軽量な互換シム。`using log4net;`を`using SuperLightLogger;`に置換＋`Program.cs`で`LogManager.Configure(...)`を1回呼ぶだけで、既存の`log.Info()`/`log.DebugFormat()`/`log.Error(msg, ex)`などをコード無改造でC#標準`Microsoft.Extensions.Logging`へ移行可能（所要数分）。Serilog / OpenTelemetry / Application Insights / Datadog / Seq / Loki等のシンクが設定だけで使えるようになり、構造化ログ（`log.InfoStructured("ユーザー {UserId} ...", ...)`）へ段階的に移行可能、ASP.NET Core / Generic Host / DIともシームレス統合。NLog互換の`File Target`（日付/サイズベースローテーション、アーカイブ）を追加依存ゼロで内蔵、`net8.0` / `net10.0`で`IsAotCompatible=true`対応、2.6MB単一ネイティブEXE内での動作を実機検証済み。</div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">.NET 8 / 10</span>
