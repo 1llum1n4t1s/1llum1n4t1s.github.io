@@ -464,11 +464,43 @@
     }
 
     .card-desc {
-      font-size: 0.95rem;
-      line-height: 1.85;
+      font-size: 0.93rem;
+      line-height: 1.75;
       margin-bottom: 1.15rem;
       font-weight: 400;
       color: var(--fg);
+    }
+
+    .card-desc p {
+      margin: 0 0 0.7rem 0;
+    }
+
+    .card-desc p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-desc ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .card-desc li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.35rem;
+      line-height: 1.65;
+    }
+
+    .card-desc li:last-child { margin-bottom: 0; }
+
+    .card-desc li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 700;
     }
 
     .card-desc strong {
@@ -708,7 +740,17 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/Lhamiel/main/src/Lhamiel/icon/app_icon.png" alt="Lhamiel"></div>
             <div class="card-name">Lhamiel（ラミエル）</div>
-            <div class="card-desc">ファイルをウィンドウに<strong>D&Dするだけで自動で圧縮・展開が始まる</strong>シンプル高速アーカイブツール。ロック中ファイルを一時コピーして圧縮、暗号化ZIP/7z/RARのパスワード入力ダイアログ、二重ネスト防止、Windows風のファイル比較ダイアログ（サムネイル付き同名競合解決）、事前＆処理中のディスク容量チェック、破損アーカイブからの可能な限りのファイル救出、ファイル関連付け設定を搭載。ダーク/ライト/システム追従の3テーマ、17言語UI、Native AOTビルドで.NET不要、Velopackによる差分自動更新対応。</div>
+            <div class="card-desc">
+              <p>ファイルをウィンドウに<strong>D&Dするだけで自動で圧縮・展開が始まる</strong>シンプル高速アーカイブツール。</p>
+              <ul>
+                <li>ロック中ファイルの自動一時コピー圧縮</li>
+                <li>暗号化 ZIP / 7z / RAR のパスワード入力ダイアログ</li>
+                <li>二重ネスト防止 ＆ Windows 風サムネ付き衝突ダイアログ</li>
+                <li>事前＆処理中のディスク容量チェック、破損アーカイブ救出</li>
+                <li>ダーク / ライト / システム追従の 3 テーマ、17 言語 UI</li>
+                <li>Native AOT で .NET 不要、Velopack 差分自動更新</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Native AOT</span>
@@ -724,7 +766,19 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/Komorebi/main/build/resources/app/komorebi-icon-1024.png" alt="Komorebi"></div>
             <div class="card-name">Komorebi</div>
-            <div class="card-desc">C# / .NET 10とAvalonia UI 12で構築された<strong>クロスプラットフォームGit GUIクライアント</strong>。SourceGitをフォークし、初回セットアップウィザード、OSロケール自動検出＋ロケール別フォント最適化、Squash/Fixup後の`--force-with-lease`強制プッシュ、ブランチ作成後の自動プッシュ、Staged/Unstaged配置入れ替え、リポジトリ自動スキャンを独自追加。SSH鍵管理UIは3段フォールバック（リモート個別→グローバル→ssh-agent）、AWS CodeCommitはHTTPS/SSH/git-remote-codecommitの3形式対応。OneDark/Whiteテーマ追加、タガログ/サンスクリット/ラテンを含む17言語で翻訳率100%、Velopack自動アップデート対応。</div>
+            <div class="card-desc">
+              <p>C# / .NET 10 + Avalonia UI 12 で構築された<strong>クロスプラットフォーム Git GUI クライアント</strong>（SourceGit フォーク）。</p>
+              <ul>
+                <li>初回セットアップウィザード、OS ロケール自動検出＋フォント最適化</li>
+                <li>Squash / Fixup 後の --force-with-lease 強制プッシュ</li>
+                <li>ブランチ作成後の自動プッシュ、リポジトリ自動スキャン</li>
+                <li>Staged / Unstaged 配置入れ替えで直感的な UI</li>
+                <li>SSH 鍵 3 段フォールバック（リモート個別 → グローバル → ssh-agent）</li>
+                <li>AWS CodeCommit の HTTPS / SSH / git-remote-codecommit 3 形式対応</li>
+                <li>OneDark / White テーマ追加、17 言語翻訳率 100%</li>
+                <li>Velopack 自動アップデート</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Avalonia 12</span>
@@ -740,7 +794,17 @@
           <div class="app-card" data-accent="blue">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/IRUZ/main/icon/app_icon.png" alt="IRUZ"></div>
             <div class="card-name">IRUZ（居るぜ）</div>
-            <div class="card-desc"><strong>Teams等の退席判定をリセットする</strong>常駐マウスジグラー。SendInputによる相対移動（`MOUSEEVENTF_MOVE` ±1px）で`GetLastInputInfo`を更新しつつカーソル位置は動かない設計。`SetCursorPos`では最終入力時刻が更新されないためSendInputを採用。間隔は30/60/120/300秒から選択（デフォルト60秒）、起動時自動開始、ウィンドウ最小化でタスクトレイ格納、トレイアイコンから表示/終了操作可能。Avalonia 11 + Actipro Controls + CommunityToolkit.Mvvm構成、Native AOTビルドで.NET不要、スタートアップフォルダに登録すればWindowsログイン時に自動起動。</div>
+            <div class="card-desc">
+              <p><strong>Teams 等の退席判定をリセットする</strong>常駐マウスジグラー。</p>
+              <ul>
+                <li>SendInput の相対移動（MOUSEEVENTF_MOVE ±1px）で GetLastInputInfo を更新</li>
+                <li>カーソル位置は一切動かない設計（SetCursorPos は最終入力時刻を更新しないため不採用）</li>
+                <li>間隔は 30 / 60 / 120 / 300 秒から選択（デフォルト 60 秒）</li>
+                <li>起動時自動開始、最小化でタスクトレイ格納</li>
+                <li>Avalonia 11 + Actipro Controls + CommunityToolkit.Mvvm 構成</li>
+                <li>Native AOT で .NET 不要、スタートアップフォルダ登録で自動起動も可能</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Native AOT</span>
@@ -756,7 +820,18 @@
           <div class="app-card" data-accent="purple">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/MarkItDown.GUI/main/icon/app_icon.png" alt="MarkItDown.GUI"></div>
             <div class="card-name">MarkItDown.GUI</div>
-            <div class="card-desc"><strong>D&DでOffice / PDF / 画像 / 音声 / アーカイブ等の各種ファイルをMarkdownに変換</strong>。Reddit（JSON API高速取得）、X/Twitter（タイムライン全件＋画像オリジナル画質DL、セッション永続化）、Instagram（全投稿メディア一括DL、ブラウザCookie自動認証）、その他サイト（HTTP+Claudeガイド型でブラウザ起動なし、ページネーション対応）のWebスクレイピング機能内蔵。Python/FFmpeg/Node.js/Claude Code CLI等の依存を全てアプリ内`lib/`に格納するポータブル設計で、システムのPATH・レジストリ・既存Python環境に一切影響なし（アンインストールはフォルダ削除だけ）。Claude AI連携で『元データ/整形済/まとめ済』の3ファイル自動生成、最大3ファイル並列処理、起動時にPythonパッケージを自動更新。</div>
+            <div class="card-desc">
+              <p><strong>D&D で Office / PDF / 画像 / 音声 / アーカイブ等を Markdown に変換</strong>。</p>
+              <ul>
+                <li>Reddit: JSON API で高速取得</li>
+                <li>X / Twitter: タイムライン全件＋画像オリジナル画質 DL（セッション永続化）</li>
+                <li>Instagram: 全投稿メディア一括 DL（Cookie 自動認証）</li>
+                <li>その他サイト: HTTP + Claude ガイド型でブラウザ起動なし高速取得</li>
+                <li>Python / FFmpeg / Node.js / Claude Code CLI をアプリ内 lib/ に内包するポータブル設計（PATH・レジストリ・既存 Python に影響なし）</li>
+                <li>Claude AI 連携で『元データ / 整形済 / まとめ済』の 3 ファイル自動生成</li>
+                <li>最大 3 ファイル並列処理、起動時にパッケージ自動更新</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Avalonia UI</span>
@@ -772,7 +847,14 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon">✍️</div>
             <div class="card-name">UltraMDmemo</div>
-            <div class="card-desc">自由入力のラフメモを<strong>ワンクリックで構造化Markdownに変換</strong>する軽量メモツール。Claude Code CLIと連携して、箇条書き・見出し・表・強調・コードブロックなどを文脈に合わせて適切に整形した高品質な文書を自動生成。議事録・アイデアメモ・設計書ドラフトの清書を手作業抜きで一発完結できる。Native AOTビルドでWindows/macOS両対応、.NETランタイム不要で瞬時起動。</div>
+            <div class="card-desc">
+              <p>自由入力のラフメモを<strong>ワンクリックで構造化 Markdown に変換</strong>する軽量メモツール。</p>
+              <ul>
+                <li>Claude Code CLI 連携で箇条書き・見出し・表・強調・コードブロックを文脈に合わせて自動整形</li>
+                <li>議事録・アイデアメモ・設計書ドラフトの清書を手作業抜きで完結</li>
+                <li>Native AOT で Windows / macOS 両対応、.NET ランタイム不要で瞬時起動</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Native AOT</span>
@@ -787,7 +869,16 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/TurnOffTheDisplay/main/icon/app_icon.png" alt="ディスプレイ＠OFF"></div>
             <div class="card-name">ディスプレイ＠OFF</div>
-            <div class="card-desc">起動するだけでディスプレイをWindowsの電源プランの『ディスプレイの電源を切る』と同等のスタンバイモードに移行する<strong>超シンプルツール</strong>。5秒のカウントダウン中はESCキーまたはキャンセルボタンでいつでも中止できるので誤操作も安心、席を離れる際や『PCは稼働させたままディスプレイだけ消したい』場面に最適。2008年から続く老舗ツールを2026年にAvalonia UI＋Native AOTで全面刷新し、WPF版から瞬時起動を実現。MVVMパターン（CommunityToolkit.Mvvm）採用、Velopackによる自動アップデート、Windows起動時のチェック対応、一般ユーザー権限で動作（管理者権限不要）。</div>
+            <div class="card-desc">
+              <p>起動するだけで<strong>ディスプレイをスタンバイモードに移行</strong>する超シンプルツール。</p>
+              <ul>
+                <li>Windows 電源プランの『ディスプレイの電源を切る』と同等動作</li>
+                <li>5 秒カウントダウン中は ESC キー / キャンセルボタンで中止可能</li>
+                <li>2008 年発のツールを 2026 年に Avalonia UI ＋ Native AOT で全面刷新</li>
+                <li>MVVM（CommunityToolkit.Mvvm）採用、Velopack 自動更新対応</li>
+                <li>一般ユーザー権限で動作、管理者権限不要</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Avalonia UI</span>
@@ -815,7 +906,16 @@
           <div class="app-card" data-accent="blue">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/ReviewForMD/main/icons/icon128.png" alt="プルリクMDコピー"></div>
             <div class="card-name">プルリクMDコピー</div>
-            <div class="card-desc">GitHub / Azure DevOpsのプルリクエストから、<strong>タイトル・本文・全レビューコメントを投稿者・日時・対象ファイルパス・差分コード付きで`.md`ファイルにダウンロード</strong>。PR一覧ページの各行にもボタンが追加されるのでPRを開かず一覧から直接取得可能、個別コメントだけをMDテキストとしてクリップボードコピーもできる。カスタムドメインのAzure DevOps（企業独自ドメイン）もURLパターン＋DOM構造のマルチシグナル判定（`bolt-*`/`repos-*` CSS等）で自動検出。おまけでSharePoint Stream / Teams会議録画ページの字幕トランスクリプトを`.vtt`ファイルで保存する機能も搭載、議事録生成やAI連携で大活躍。</div>
+            <div class="card-desc">
+              <p><strong>GitHub / Azure DevOps の PR を Markdown ダウンロード</strong>。</p>
+              <ul>
+                <li>PR タイトル・本文・全レビューコメントを投稿者・日時・対象ファイルパス・差分コード付きで .md 出力</li>
+                <li>PR 一覧ページの各行にもボタン、PR を開かずに一覧から取得可能</li>
+                <li>個別コメントだけを Markdown でクリップボードコピー</li>
+                <li>カスタムドメインの Azure DevOps も DOM マルチシグナル判定で自動検出</li>
+                <li>おまけ: SharePoint Stream / Teams 会議録画の字幕を VTT ダウンロード</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">GitHub</span>
@@ -837,7 +937,17 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/replace-font/main/icons/icon-128x128.png" alt="NotoSansへ置換するやつ"></div>
             <div class="card-name">NotoSansへ置換するやつ（改修型）</div>
-            <div class="card-desc">ウェブサイト上の<strong>読みづらい日本語フォントを固定で置換</strong>する拡張機能。MSゴシック／メイリオ／Yu Gothic／システムフォント等を狙い撃ちで`Noto Sans JP`（本文）、`MSゴシック`/`Consolas`/`JetBrains Mono`等の等幅を`UDEV Gothic JPDOC`（BIZ UDゴシック＋JetBrains Monoベース、濁点・半濁点や『1/l』『0/O』の判別性◎）に自動置換。ゴシック/明朝/等幅を判別してデザイン意図を維持、Arial/Helvetica/Inter/system-ui等の欧文・システムフォントもカバー。一般的な拡張機能では対応が難しいShadow DOM内のフォント（YouTubeや各種モダンWebアプリ）も漏らさず置換、ページ表示速度への影響を徹底的に最適化。</div>
+            <div class="card-desc">
+              <p>ウェブの<strong>読みづらい日本語フォントを固定で置換</strong>する拡張機能。</p>
+              <ul>
+                <li>MSゴシック / メイリオ / Yu Gothic / システムフォント等を狙い撃ちで Noto Sans JP に置換</li>
+                <li>等幅（Consolas / JetBrains Mono 等）は UDEV Gothic JPDOC に置換</li>
+                <li>UDEV Gothic JPDOC は BIZ UDゴシック＋JetBrains Mono ベース。濁点・半濁点、1/l、0/O の判別性◎</li>
+                <li>ゴシック / 明朝 / 等幅を判別してデザイン意図を維持</li>
+                <li>Arial / Helvetica / Inter / system-ui 等の欧文・システムフォントもカバー</li>
+                <li>Shadow DOM 内（YouTube 等）も漏らさず置換、表示速度への影響を徹底最適化</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">⭐ 5.0</span>
@@ -859,7 +969,17 @@
           <div class="app-card" data-accent="purple">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/DarkBlueThemeX/main/icons/icon.svg" alt="帰ってきたDarkBlueテーマ(X)"></div>
             <div class="card-name">帰ってきたDarkBlueテーマ(X)</div>
-            <div class="card-desc"><strong>X（旧Twitter）のダークテーマ（黒/Lights Out）を、かつて廃止された旧DarkBlue（Dim）テーマに自動変換</strong>するChrome拡張機能。背景メイン`#15202B`、カード/モーダル`#192734`、ホバー`#22303C`、ボーダー`#38444D`、アクセント`#1D9BF0`といったかつての配色をそっくり復元し、目に優しい落ち着いたダークブルーの世界を取り戻せる。拡張機能のポップアップからワンタッチでON/OFF切替（デフォルトON）、ライトテーマ利用者には影響しない安全設計、SPAナビゲーション・動的コンテンツに完全対応。Chrome 110以上、個人情報の収集は一切なし。</div>
+            <div class="card-desc">
+              <p><strong>X（旧Twitter）のダークテーマを旧 DarkBlue テーマに変換</strong>する拡張機能。</p>
+              <ul>
+                <li>背景 #15202B / カード #192734 / ホバー #22303C / ボーダー #38444D / アクセント #1D9BF0 を復元</li>
+                <li>目に優しい落ち着いたダークブルーの世界を取り戻せる</li>
+                <li>ポップアップからワンタッチ ON / OFF 切替（デフォルト ON）</li>
+                <li>ライトテーマ利用者には影響しない安全設計</li>
+                <li>SPA ナビゲーション・動的コンテンツに完全対応</li>
+                <li>Chrome 110 以上、個人情報の収集は一切なし</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">#15202B</span>
@@ -881,7 +1001,17 @@
           <div class="app-card" data-accent="blue">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/ScreenGuard/main/icons/icon.svg" alt="スクリーンカーテン"></div>
             <div class="card-name">スクリーンカーテン</div>
-            <div class="card-desc"><strong>YouTubeのコメント欄をピンポイントで覆い隠す</strong>のに最適なスクリーンカーテン。動画だけ観たいのにネタバレ・荒らし・批判コメントが目に入ってしまう問題を、カーテンを1枚被せるだけで解決します。コメント欄の位置にサイズをフィットさせて保存しておけば次回以降は自動復元。離席時のプライバシー保護、配信画面の情報隠し、作業中の気が散るエリアの隠蔽などにも使えます。Light/Dark/Glass（ぼかし強度調整可）の3テーマ、ドラッグ移動と8方向ハンドルによる自由なリサイズに対応、外部サーバーとの通信は一切なし。</div>
+            <div class="card-desc">
+              <p><strong>YouTube のコメント欄をピンポイントで覆い隠す</strong>のに最適なスクリーンカーテン。</p>
+              <ul>
+                <li>ネタバレ・荒らし・批判コメントをカーテン 1 枚で視界から消せる</li>
+                <li>コメント欄にサイズをフィット保存すれば次回以降は自動復元</li>
+                <li>離席時のプライバシー保護、配信画面の情報隠し、作業中の集中阻害エリアの隠蔽にも</li>
+                <li>Light / Dark / Glass（ぼかし強度調整可）の 3 テーマ</li>
+                <li>ドラッグ移動と 8 方向ハンドルによる自由なリサイズ</li>
+                <li>外部サーバーとの通信は一切なし</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">YouTubeコメ隠し</span>
@@ -905,7 +1035,15 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/CleanReload/main/icons/icon.svg" alt="Clean Reload"></div>
             <div class="card-name">Clean Reload</div>
-            <div class="card-desc">ツールバーのアイコンをクリックするだけで、<strong>Service Worker登録の全解除 → CacheStorage内のキャッシュ全削除 → HTTPキャッシュバイパスでリロード</strong>、を自動実行する徹底クリーンリロード拡張機能。通常のスーパーリロード（Ctrl+Shift+R）ではクリアされないService Worker登録やCacheStorageまで含めて完全リセットするので、PWA開発時の動作確認、サイト更新が反映されない不具合調査、古いService Workerの残骸トラブルなどで『なんで変わらないの！』となったときの特効薬になる拡張機能。権限はactiveTab（クリック時のアクティブタブのみ）とbrowsingData（該当オリジンのみ削除）の最小構成。</div>
+            <div class="card-desc">
+              <p>ツールバーをクリックするだけで<strong>Service Worker / CacheStorage / HTTP キャッシュを全消去してリロード</strong>。</p>
+              <ul>
+                <li>Service Worker 登録の全解除 → CacheStorage 全削除 → HTTP キャッシュバイパスを自動実行</li>
+                <li>Ctrl+Shift+R でもクリアされない Service Worker / CacheStorage まで完全リセット</li>
+                <li>PWA 開発・サイト更新確認・キャッシュ起因トラブルの特効薬</li>
+                <li>権限は activeTab + browsingData のみの最小構成</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Service Worker</span>
@@ -927,7 +1065,17 @@
           <div class="app-card" data-accent="purple">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/RaindropShortcut/main/icons/icon.svg" alt="Raindrop Shortcuts"></div>
             <div class="card-name">Raindrop Shortcuts</div>
-            <div class="card-desc"><strong>Raindrop.ioのブックマークをツールバーからワンクリックで一覧表示</strong>するChrome拡張機能。タイトル・ドメイン名でのインクリメンタル検索（リアルタイム絞り込み）、表示するフォルダ（コレクション）の切替、リンクの開き方（新しいタブ/現在のタブ）を設定可能。OS設定に自動追従＋手動切替のダークモード、直近のブックマークはローカルキャッシュから即時表示してバックグラウンドで差分更新するハイブリッド方式で体感速度も快適。OAuth 2.0認証なのでパスワードは拡張機能に入力不要、個人情報の収集・外部送信は一切なし（favicon画像取得のためブックマークのドメイン名のみGoogle Favicon Serviceへ送信）。</div>
+            <div class="card-desc">
+              <p><strong>Raindrop.io のブックマークをツールバーからワンクリック表示</strong>する拡張機能。</p>
+              <ul>
+                <li>タイトル・ドメイン名のインクリメンタル検索（リアルタイム絞り込み）</li>
+                <li>表示するフォルダ（コレクション）・リンクの開き方を設定可能</li>
+                <li>OS 設定追従 ＋ 手動切替のダークモード</li>
+                <li>ローカルキャッシュで即時表示 ＋ バックグラウンドで差分更新</li>
+                <li>OAuth 2.0 認証でパスワード入力不要</li>
+                <li>favicon 取得のみ Google Favicon Service にドメイン送信、他は外部送信なし</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Raindrop.io</span>
@@ -949,7 +1097,18 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/ReplaceFontSelect/main/icons/icon.svg" alt="目に優しいフォント置換"></div>
             <div class="card-name">目に優しいフォント置換</div>
-            <div class="card-desc">ウェブサイトの読みづらいフォントを<strong>9種類から選んで自動置換</strong>するChrome / Firefox拡張機能。本文フォント6種（Noto Sans JP / IBM Plex Sans JP / M PLUS 2 / Murecho / Zen Kaku Gothic New / LINE Seed JP）と等幅フォント3種（UDEV Gothic JPDOC / PlemolJP / Moralerspace Neon JPDOC）を全て拡張機能内に同梱、すべてSIL OFL 1.1ライセンス。本文はRegular / Mediumの太さも選択可（Boldはそのまま維持）、等幅はRegular固定。ゴシック/明朝/等幅を判別してデザイン意図を維持しつつShadow DOM内（YouTube等のモダンWebアプリ）も漏らさず置換、置換フォントが持たないグリフ（アラビア文字・タイ文字等）はCSS cascadeで元サイト指定のフォントへ自動フォールバック。</div>
+            <div class="card-desc">
+              <p>Web の読みづらいフォントを<strong>9 種類から選んで自動置換</strong>する Chrome / Firefox 拡張機能。</p>
+              <ul>
+                <li>本文 6 種: Noto Sans JP / IBM Plex Sans JP / M PLUS 2 / Murecho / Zen Kaku Gothic New / LINE Seed JP</li>
+                <li>等幅 3 種: UDEV Gothic JPDOC / PlemolJP / Moralerspace Neon JPDOC</li>
+                <li>全フォント同梱、SIL OFL 1.1 ライセンス</li>
+                <li>本文は Regular / Medium の太さ選択可（Bold 維持）、等幅は Regular 固定</li>
+                <li>ゴシック / 明朝 / 等幅を判別してデザイン意図を維持</li>
+                <li>Shadow DOM 内（YouTube 等）も漏らさず置換</li>
+                <li>未カバーグリフ（アラビア文字・タイ文字等）は CSS cascade で元フォントへフォールバック</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">9フォント同梱</span>
@@ -971,7 +1130,17 @@
           <div class="app-card" data-accent="blue">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/SearchClock/main/icons/icon.svg" alt="SearchClock"></div>
             <div class="card-name">SearchClock</div>
-            <div class="card-desc"><strong>Google検索の期間指定を固定化する</strong>Chrome拡張機能。一度期間を設定すれば以降のGoogle検索に自動適用されるので、毎回『ツール』メニューから期間を選び直す面倒が完全に消滅、常に新しい情報だけを表示できる。プリセットはオフ / 3時間 / 12時間 / 1日 / 3日 / 1週間 / 1ヶ月 / 3ヶ月 / 半年 / 1年 / 3年の11段階。`declarativeNetRequest`でURLを検索前にインターセプトして書き換えるため、二重ローディングなしの高速動作。Google検索のツールで期間を変更すると拡張機能は自動でオフ、拡張機能で変更するとGoogle側がクリアされる『後勝ち』連携、検索結果上部のインラインパネル＋ポップアップの両方から操作可能、Googleのライト/ダークテーマにも自動追従。</div>
+            <div class="card-desc">
+              <p><strong>Google 検索の期間指定を固定化</strong>する Chrome 拡張機能。</p>
+              <ul>
+                <li>一度設定すれば以降の Google 検索に自動適用、「ツール」メニュー選び直しの手間が消える</li>
+                <li>11 プリセット: オフ / 3 時間 / 12 時間 / 1 日 / 3 日 / 1 週間 / 1 ヶ月 / 3 ヶ月 / 半年 / 1 年 / 3 年</li>
+                <li>declarativeNetRequest で検索前に URL インターセプト、二重ローディングなし</li>
+                <li>Google 側で期間変更すると拡張機能は自動オフ、拡張機能で変更すると Google 側をクリアする「後勝ち」連携</li>
+                <li>検索結果上部のインラインパネル ＋ ポップアップの両方から操作可能</li>
+                <li>Google のライト / ダークテーマにも自動追従</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">Google検索</span>
@@ -993,7 +1162,16 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/WebRestrictionRemoval/main/icons/icon.svg" alt="WEB制限解除サポート"></div>
             <div class="card-name">WEB制限解除サポート</div>
-            <div class="card-desc"><strong>右クリック・テキスト選択を禁止するスクリプトを無効化してWebページの制限を自動解除</strong>、さらに右クリックメニューから強制ペースト（編集可能な入力欄）／強制コピー（テキスト選択中）を実行できる拡張機能。v1.0.14〜はSharePoint / Box等のセッションタイムアウトを緩和する『セッション維持』機能搭載——合成アクティビティ（mousemove/pointermove/scroll/focus）の定期dispatchと、SharePointでは`/_api/web`、その他サイトでは現在URL/origin rootへの`HEAD`で1〜15分（デフォルト4分）間隔で維持。v1.1.0〜はExcel Online / Google Docs / Notion / Figma等、サイト側が独自の右クリックメニューを提供するSaaSで`contextmenu`/`selectstart`ブロックをスキップする『カスタム許可リスト』機能も追加、主要SaaSは組み込み済み。外部サーバー通信なし。</div>
+            <div class="card-desc">
+              <p><strong>右クリック・テキスト選択を禁止するスクリプトを無効化</strong>して Web ページの制限を自動解除。</p>
+              <ul>
+                <li>右クリックメニューから強制ペースト（入力欄）／強制コピー（選択中）を実行可能</li>
+                <li>v1.0.14〜: SharePoint / Box 等のセッションタイムアウト緩和機能を搭載</li>
+                <li>合成アクティビティ＋SharePoint /_api/web ping で 1〜15 分（デフォルト 4 分）間隔で維持</li>
+                <li>v1.1.0〜: Excel Online / Google Docs / Notion / Figma 等の独自右クリックを尊重するカスタム許可リスト</li>
+                <li>主要 SaaS は組み込み済み、外部サーバー通信なし</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">強制ペースト</span>
@@ -1015,7 +1193,17 @@
           <div class="app-card" data-accent="purple">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/EvidenceShot/main/icons/icon.svg" alt="EvidenceShot"></div>
             <div class="card-name">EvidenceShot</div>
-            <div class="card-desc"><strong>Webテスト向けにタブの表示内容を撮影・保存する</strong>Chrome拡張機能。撮影モードは『表示中のみ（1画面）』『ページ全体（レイアウト込み、左右カラム含めてスクロール連結）』『中央本文のみ（主カラム優先連結）』の3種を切替可能。保存形式はPNG / JPEG / WEBPから選択、タイムスタンプ（デザイン・サイズ選択可）や左下固定テキスト（例: 社外秘／COPYRIGHT）の埋め込みにも対応し、証跡エビデンスとしてそのまま提出できる。撮影開始はポップアップからのみで常時の`<all_urls>`権限やフローティングボタンは使わない控えめ設計、http / httpsページのみ対応、撮影中に増えたコンテンツは対象外（撮影開始時点のスクロール範囲末尾まで）。</div>
+            <div class="card-desc">
+              <p><strong>Web テスト向けにタブを撮影・保存</strong>する Chrome 拡張機能。</p>
+              <ul>
+                <li>3 撮影モード: 表示中のみ / ページ全体（左右カラム含むスクロール連結）/ 中央本文のみ</li>
+                <li>保存形式: PNG / JPEG / WEBP</li>
+                <li>タイムスタンプ（デザイン・サイズ選択可）の埋め込み</li>
+                <li>左下固定テキスト（社外秘 / COPYRIGHT 等）の埋め込みにも対応</li>
+                <li>撮影開始はポップアップからのみ、常時の all_urls 権限やフローティングボタンなし</li>
+                <li>http / https ページのみ対応</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">3モード撮影</span>
@@ -1037,7 +1225,17 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/CleanStart/main/icons/icon-128.png" alt="Clean Start"></div>
             <div class="card-name">Clean Start</div>
-            <div class="card-desc"><strong>履歴・キャッシュ・Cookie・CacheStorage・Service Worker等のサイト保存データをポップアップから一括削除</strong>するChrome拡張機能。削除対象期間はLast Hour / Last Day / Last Week / Last 4 Weeks / Everythingから選択、ポップアップ内で削除種別のチェックボックスをそのまま確認・変更可能。誤クリック防止のためClearボタンは2段階タップ方式（1回目で『もう一度タップで削除』状態、5秒以内の2回目押下で実行）で、うっかり全削除の事故を防ぐ。Chrome起動時に自動削除を実行してから通常のWebタブを順次リロードする使い方にも対応、削除後のアクティブタブ自動再読み込みオプションも搭載。host_permissions不要で`browsingData`権限のみ動作する身軽設計、Cookieはサイト全体の一括削除のみ。</div>
+            <div class="card-desc">
+              <p><strong>履歴 / キャッシュ / Cookie / CacheStorage / Service Worker を一括削除</strong>する Chrome 拡張機能。</p>
+              <ul>
+                <li>削除期間: Last Hour / Last Day / Last Week / Last 4 Weeks / Everything</li>
+                <li>ポップアップ内で削除種別のチェックボックスをそのまま確認・変更可能</li>
+                <li>Clear ボタンは 2 段階タップ方式（1 回目で確認状態、5 秒以内の 2 回目で実行）</li>
+                <li>Chrome 起動時の自動削除 → Web タブの順次リロード対応</li>
+                <li>削除後にアクティブタブを自動再読み込みするオプション搭載</li>
+                <li>host_permissions 不要、browsingData 権限のみの身軽設計</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">MIT</span>
               <span class="tag">browsingData</span>
@@ -1070,7 +1268,19 @@
           <div class="app-card" data-accent="purple">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/1llum1n4t1s.AlphaFS/main/icon/app_icon.png" alt="1llum1n4t1s.AlphaFS"></div>
             <div class="card-name">1llum1n4t1s.AlphaFS</div>
-            <div class="card-desc"><strong>2024年12月にアーカイブされた本家AlphaFSを継続保守する.NET 10対応フォーク</strong>。260文字超の拡張長パス（最大32,000文字）、ジャンクション／ハードリンクの作成、NTFS代替データストリーム（ファイル・フォルダ両方）、トランザクショナルNTFS（TxF / KTM）による原子的ファイル操作、SMB / DFSネットワークリソースへのアクセス、隠しボリューム/ボリューム列挙、ファイル/フォルダ列挙のカスタムフィルタ＆アクセス拒否時のエラー回復、先頭/末尾に空白を含むフォルダ名へのアクセスなど、標準`System.IO`では届かないWin32ファイルシステム機能を包括的に提供。`using System.IO;`を`using Alphaleonis.Win32.Filesystem;`に置き換えるだけで基本ドロップイン互換、COM Interop実装は.NET 10 / NativeAOT対応のため全面刷新済み。</div>
+            <div class="card-desc">
+              <p><strong>2024 年にアーカイブされた本家 AlphaFS を継続保守する .NET 10 フォーク</strong>。</p>
+              <ul>
+                <li>260 文字超の拡張長パス（最大 32,000 文字）</li>
+                <li>ジャンクション / ハードリンク作成</li>
+                <li>NTFS 代替データストリーム（ファイル・フォルダ両方）</li>
+                <li>トランザクショナル NTFS（TxF / KTM）による原子的ファイル操作</li>
+                <li>SMB / DFS ネットワークリソースへのアクセス</li>
+                <li>隠しボリューム列挙、カスタムフィルタ＆アクセス拒否エラー回復</li>
+                <li>using System.IO; を using Alphaleonis.Win32.Filesystem; に置換するだけでドロップイン互換</li>
+                <li>COM Interop を .NET 10 / NativeAOT 対応のため全面刷新</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">.NET 10</span>
@@ -1086,7 +1296,17 @@
           <div class="app-card" data-accent="blue">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/1llum1n4t1s.NAudio/main/icon/app_icon.png" alt="1llum1n4t1s.NAudio"></div>
             <div class="card-name">1llum1n4t1s.NAudio</div>
-            <div class="card-desc">Mark Heath氏による本家<strong>NAudioの.NET 10対応フォーク</strong>。net10.0 / net10.0-windowsをターゲットに更新、Windows x64ランタイム対応。本家でマージされていなかった『特定プロセスを指定してのループバックキャプチャ』（ProcessLoopbackCapture）を独自実装、他アプリの音声だけを選択的に録音可能に。加えて多数のバグ修正を反映しているため本家と動作が異なる場合もあり。公開API・名前空間は本家と完全互換なので、既存のNAudioコードに対する<strong>ドロップイン置換として使える</strong>うえ、本家のドキュメント・StackOverflow回答・チュートリアル（`tag:naudio`）・サンプルコードがそのまま適用可能。再生/録音/各種ファイル形式/オーディオ加工/MIDI等の包括的機能も本家そのまま。</div>
+            <div class="card-desc">
+              <p>Mark Heath 氏による本家<strong>NAudio の .NET 10 対応フォーク</strong>。</p>
+              <ul>
+                <li>net10.0 / net10.0-windows をターゲット、Windows x64 ランタイム対応</li>
+                <li>本家未マージのプロセス指定ループバックキャプチャ（ProcessLoopbackCapture）を独自実装</li>
+                <li>多数のバグ修正を反映（本家と動作差異の可能性あり）</li>
+                <li>公開 API・名前空間は本家と完全互換で<strong>ドロップイン置換</strong>可能</li>
+                <li>本家のドキュメント・StackOverflow 回答・サンプルがそのまま適用可能</li>
+                <li>再生 / 録音 / 各種ファイル形式 / オーディオ加工 / MIDI 等の包括機能は本家そのまま</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">.NET 10</span>
@@ -1102,7 +1322,20 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/1llum1n4t1s.Sevenzip/main/icon/app_icon.png" alt="1llum1n4t1s.Sevenzip"></div>
             <div class="card-name">1llum1n4t1s.Sevenzip</div>
-            <div class="card-desc"><strong>Cube.FileSystem.SevenZipをフォーク</strong>し、7-Zip 26.00のネイティブバイナリを直接同梱した.NET 10 / NativeAOT対応ラッパーライブラリ。COM Interopを`[GeneratedComInterface]`、P/Invokeを`[LibraryImport]`に全面移行し、Windows x64 / arm64の両RIDに対応（Managedアセンブリは単一AnyCPU）。本家に比べ、`ArchiveWriter.Update()`/`Remove()`による既存アーカイブの追加・置換・削除、ロック中ファイルの自動コピー圧縮、Reader側CodePage/`Encoding`対応、`ArchiveReader(Stream)`/`ArchiveWriter.Save(Stream)`等のStream API、`FileExtracting`/`FileCompressed`のper-file進捗イベント、`CustomParameters`/`VolumeSize`/`IncludeEmptyDirectories`等の柔軟な圧縮オプション、`AtomicSave`/`FlushToDisk`/`KeepBackupOnUpdate`等のクラッシュ耐性オプション、`ArchiveUpdateException`構造化例外などを追加。ビルド時のネットワークアクセスなしで決定論的ビルド保証。</div>
+            <div class="card-desc">
+              <p><strong>Cube.FileSystem.SevenZip をフォーク</strong>し、7-Zip 26.00 を同梱した .NET 10 / NativeAOT ラッパー。</p>
+              <ul>
+                <li>COM Interop を [GeneratedComInterface]、P/Invoke を [LibraryImport] に全面移行</li>
+                <li>Windows x64 / arm64 両 RID 対応（Managed は単一 AnyCPU）</li>
+                <li>ArchiveWriter.Update() / Remove() で既存アーカイブの追加・置換・削除</li>
+                <li>ロック中ファイルの自動コピー圧縮、Reader 側 CodePage / Encoding 対応</li>
+                <li>ArchiveReader(Stream) / ArchiveWriter.Save(Stream) 等の Stream API</li>
+                <li>FileExtracting / FileCompressed の per-file 進捗イベント</li>
+                <li>CustomParameters / VolumeSize / IncludeEmptyDirectories の柔軟な圧縮オプション</li>
+                <li>AtomicSave / FlushToDisk / KeepBackupOnUpdate のクラッシュ耐性オプション</li>
+                <li>ビルド時のネットワークアクセスなし、決定論的ビルド保証</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">.NET 10</span>
@@ -1118,7 +1351,19 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/CRDebugger/main/icon/app_icon.png" alt="CRDebugger"></div>
             <div class="card-name">CRDebugger</div>
-            <div class="card-desc">Unity向け<strong>SRDebuggerに着想を得たランタイムデバッグパネル</strong>。NuGetパッケージ1本で WinForms / WPF / Avalonia のいずれにも組み込み可能、F1〜F5のショートカットで即呼び出し。『System』はOS/CPU/メモリ/.NETランタイム/プロセス情報を一覧表示、『Console』はフィルタ（Debug/Info/Warning/Error）＋テキスト検索＋スタックトレース＋重複ログ折りたたみのリッチテキスト対応ログ、『Options』はリフレクション＋`[CRDescription]`/`[CRColor]`等の属性によるプロパティの自動UI生成＋カテゴリ折りたたみ＋非同期アクションボタン、『Profiler』はメモリ/GC Gen0-2/FPS/ロジック単位プロファイリング（CPU/メモリ/処理時間/ネットワーク/ストレージ/GPU）、『Bug Reporter』はスクショ付きバグレポート送信を搭載。ダーク/ライト/システム追従の3テーマ、ピン📌ボタンで常に前面固定、ホストアプリをクラッシュさせない安全設計。</div>
+            <div class="card-desc">
+              <p>Unity 向け<strong>SRDebugger に着想を得たランタイムデバッグパネル</strong>。</p>
+              <ul>
+                <li>NuGet 1 本で WinForms / WPF / Avalonia のいずれにも組み込み可能</li>
+                <li>F1〜F5 のショートカットで即呼び出し</li>
+                <li>System: OS / CPU / メモリ / .NET ランタイム / プロセス情報</li>
+                <li>Console: Debug/Info/Warning/Error フィルタ＋検索＋重複ログ折りたたみ</li>
+                <li>Options: リフレクション＋[CRDescription]/[CRColor] 等の属性で自動 UI 生成</li>
+                <li>Profiler: メモリ / GC Gen0-2 / FPS / ロジック単位（CPU/メモリ/ネットワーク/GPU）</li>
+                <li>Bug Reporter: スクショ付きバグレポート送信</li>
+                <li>ダーク/ライト/システム追従の 3 テーマ、ピン📌固定、クラッシュ耐性設計</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">Avalonia / WinForms / WPF</span>
@@ -1138,7 +1383,18 @@
           <div class="app-card" data-accent="emerald">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/LlmChamber/main/icon/app_icon.png" alt="LlmChamber"></div>
             <div class="card-name">LlmChamber</div>
-            <div class="card-desc">『<strong>NuGet一発、ゼロ設定、環境汚染なし</strong>』をコンセプトにローカルLLMを.NETアプリに組み込める統合ライブラリ。`dotnet add package LlmChamber`だけで動作、Python不要・グローバルインストール不要。Ollamaバイナリとモデル（デフォルトはGemma 4 E2B）は初回実行時にアプリローカルへ自動DL＆キャッシュ、2回目以降はキャッシュから即座に起動。Nvidia（CUDA）/ AMD（ROCm）/ Intel / NPUを自動検出して最適なバイナリを選択。型安全なC# APIで`IAsyncEnumerable<string>`によるストリーミング応答、会話履歴を自動管理する`ChatSession`、`services.AddLlmChamber()`によるDI統合、`HttpClient`をKeyed Servicesで差し替え可能（プロキシ・証明書等の企業環境対応）。WPF / Avalonia / WinForms / .NET MAUI用のチャットコントロールを同梱。</div>
+            <div class="card-desc">
+              <p>「<strong>NuGet 一発、ゼロ設定、環境汚染なし</strong>」でローカル LLM を .NET アプリに組み込める統合ライブラリ。</p>
+              <ul>
+                <li>dotnet add package LlmChamber だけで動作、Python 不要・グローバルインストール不要</li>
+                <li>Ollama バイナリとモデル（デフォルト Gemma 4 E2B）を初回実行時にアプリローカルへ自動 DL＆キャッシュ</li>
+                <li>Nvidia（CUDA）/ AMD（ROCm）/ Intel / NPU を自動検出して最適バイナリを選択</li>
+                <li>IAsyncEnumerable&lt;string&gt; によるストリーミング応答</li>
+                <li>会話履歴を自動管理する ChatSession、services.AddLlmChamber() による DI 統合</li>
+                <li>HttpClient を Keyed Services で差し替え可能（プロキシ・証明書等の企業環境対応）</li>
+                <li>WPF / Avalonia / WinForms / .NET MAUI 用のチャットコントロールを同梱</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">.NET 8 / 10</span>
@@ -1158,7 +1414,18 @@
           <div class="app-card" data-accent="cyan">
             <div class="card-icon"><img src="https://raw.githubusercontent.com/1llum1n4t1s/SuperLightLogger/main/icon/app_icon.png" alt="SuperLightLogger"></div>
             <div class="card-name">SuperLightLogger</div>
-            <div class="card-desc">『<strong>log4netやNLogを`using`を1行書き換えるだけで卒業できる</strong>』をコンセプトにした超軽量な互換シム。`using log4net;`を`using SuperLightLogger;`に置換＋`Program.cs`で`LogManager.Configure(...)`を1回呼ぶだけで、既存の`log.Info()`/`log.DebugFormat()`/`log.Error(msg, ex)`などをコード無改造でC#標準`Microsoft.Extensions.Logging`へ移行可能（所要数分）。Serilog / OpenTelemetry / Application Insights / Datadog / Seq / Loki等のシンクが設定だけで使えるようになり、構造化ログ（`log.InfoStructured("ユーザー {UserId} ...", ...)`）へ段階的に移行可能、ASP.NET Core / Generic Host / DIともシームレス統合。NLog互換の`File Target`（日付/サイズベースローテーション、アーカイブ）を追加依存ゼロで内蔵、`net8.0` / `net10.0`で`IsAotCompatible=true`対応、2.6MB単一ネイティブEXE内での動作を実機検証済み。</div>
+            <div class="card-desc">
+              <p>「<strong>log4net / NLog を using 1 行書き換えるだけで卒業できる</strong>」超軽量互換シム。</p>
+              <ul>
+                <li>using log4net; → using SuperLightLogger; に置換＋LogManager.Configure() を 1 回呼ぶだけ</li>
+                <li>既存の log.Info() / log.DebugFormat() / log.Error(msg, ex) をコード無改造で Microsoft.Extensions.Logging へ移行（所要数分）</li>
+                <li>Serilog / OpenTelemetry / Application Insights / Datadog / Seq / Loki 等のシンクが設定だけで使える</li>
+                <li>構造化ログへ段階的に移行可能、ASP.NET Core / Generic Host / DI とシームレス統合</li>
+                <li>NLog 互換の File Target（日付/サイズローテーション、アーカイブ）を追加依存ゼロで内蔵</li>
+                <li>net8.0 / net10.0 で IsAotCompatible=true 対応</li>
+                <li>2.6MB 単一ネイティブ EXE 内での動作を実機検証済み</li>
+              </ul>
+            </div>
             <div class="card-tags">
               <span class="tag">NuGet</span>
               <span class="tag">.NET 8 / 10</span>
