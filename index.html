@@ -192,26 +192,28 @@
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #28221d;
-        --bg-soft: #332b25;
-        --fg: #f5ede0;
-        --fg-muted: #ad9e8c;
-        --card: #3a312a;
-        --border: rgba(245, 237, 224, 0.08);
-        --border-strong: rgba(245, 237, 224, 0.15);
+        /* OneDark inspired */
+        --bg: #282c34;
+        --bg-soft: #21252b;
+        --fg: #abb2bf;
+        --fg-muted: #7d8590;
+        --card: #313640;
+        --border: rgba(171, 178, 191, 0.10);
+        --border-strong: rgba(171, 178, 191, 0.20);
 
-        --peach: #5a3a30;
-        --mint: #2f4d3c;
-        --lavender: #433552;
-        --sky: #2f4450;
-        --butter: #5a4a28;
-        --rose: #533038;
+        /* OneDark accent-tinted surfaces (subtle hint of color on dark) */
+        --peach:    #4a3340;  /* red tint  (OneDark #e06c75) */
+        --mint:     #2e4236;  /* green tint (OneDark #98c379) */
+        --lavender: #3a3144;  /* purple tint (OneDark #c678dd) */
+        --sky:      #2d3a4a;  /* blue tint (OneDark #61afef) */
+        --butter:   #423a2a;  /* yellow tint (OneDark #e5c07b) */
+        --rose:     #422c38;  /* rose tint */
 
-        --accent: #f0b09e;
-        --accent-2: #c9a9e0;
+        --accent:   #61afef;  /* OneDark blue */
+        --accent-2: #c678dd;  /* OneDark purple */
 
-        --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.2);
-        --shadow-lift: 0 12px 32px rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.25);
+        --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.40), 0 1px 3px rgba(0, 0, 0, 0.25);
+        --shadow-lift: 0 12px 32px rgba(0, 0, 0, 0.50), 0 4px 10px rgba(0, 0, 0, 0.30);
       }
     }
 
@@ -233,7 +235,7 @@
 
     /* ── Layout ── */
     .container {
-      max-width: 1120px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 0 1.8rem;
     }
@@ -409,8 +411,8 @@
     /* ── App Cards ── */
     .app-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.3rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
     }
 
     .app-card {
