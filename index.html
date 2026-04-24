@@ -14,7 +14,7 @@
   <title>ゆろちのフリーソフト</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <meta name="description" content="便利なWindows アプリ & Chrome 拡張機能を、すべて無料で。オープンソース22プロダクトを公開中。">
+  <meta name="description" content="便利なWindows アプリ & Chrome 拡張機能を、すべて無料で。オープンソース26プロダクトを公開中。">
   <meta name="google-site-verification" content="71IHREaeTt0bL7EXdTv_j6XJ0v_jRv4GNOB6eXWs0Fs" />
   <link rel="canonical" href="https://1llum1n4t1s.github.io/" />
   <!-- OGP -->
@@ -53,7 +53,7 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "フリーソフト一覧",
-    "numberOfItems": 22,
+    "numberOfItems": 26,
     "itemListElement": [
       {
         "@type": "SoftwareApplication",
@@ -131,6 +131,44 @@
         "operatingSystem": "Windows",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
         "url": "https://www.nuget.org/packages/CRDebugger.Wpf/"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "position": 9,
+        "name": "LlmChamber",
+        "description": "ローカルLLMを.NETアプリにゼロ設定で組み込めるNuGetライブラリ",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+        "url": "https://www.nuget.org/packages/LlmChamber/"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "position": 10,
+        "name": "SuperLightLogger",
+        "description": "log4net/NLogコードをMicrosoft.Extensions.Loggingへ置換する互換シムライブラリ",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+        "url": "https://www.nuget.org/packages/SuperLightLogger/"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "position": 11,
+        "name": "EvidenceShot",
+        "description": "Webテスト向けにページを画像として撮影・保存するChrome拡張機能",
+        "applicationCategory": "BrowserApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+        "url": "https://chromewebstore.google.com/detail/evidenceshot/hjnlnnomigbbmjhdjegemhnnabhfjnpi"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "position": 12,
+        "name": "CleanStart",
+        "description": "ブラウザのプライバシーデータを一括削除するChrome拡張機能",
+        "applicationCategory": "BrowserApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+        "url": "https://chromewebstore.google.com/detail/clean-start/kemedhlaihadakejnnjgbfjodakcbahd"
       }
     ]
   }
@@ -684,7 +722,7 @@
         </p>
         <div class="hero-stats">
           <div class="stat">
-            <div class="stat-number">20</div>
+            <div class="stat-number">24</div>
             <div class="stat-label">アプリ & ライブラリ</div>
           </div>
           <div class="stat">
@@ -1017,6 +1055,50 @@
               </a>
             </div>
           </div>
+
+          <div class="app-card" data-accent="purple">
+            <div class="card-icon">📸</div>
+            <div class="card-name">EvidenceShot</div>
+            <div class="card-desc">Webテスト向けのスクリーンショット拡張。「表示中」「ページ全体」「中央本文のみ」の3モード対応。PNG/JPEG/WEBP出力、タイムスタンプや著作権表記の埋め込みも可能。</div>
+            <div class="card-tags">
+              <span class="tag">MIT</span>
+              <span class="tag">スクリーンショット</span>
+              <span class="tag">フルページ</span>
+              <span class="tag">Webテスト</span>
+            </div>
+            <div class="card-links">
+              <a class="card-link" href="https://chromewebstore.google.com/detail/evidenceshot/hjnlnnomigbbmjhdjegemhnnabhfjnpi" target="_blank" rel="noopener">
+                Chrome Web Store でインストール
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a class="card-link" href="https://github.com/1llum1n4t1s/EvidenceShot" target="_blank" rel="noopener">
+                GitHub でソースコードを見る
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="app-card" data-accent="cyan">
+            <div class="card-icon">🧹</div>
+            <div class="card-name">Clean Start</div>
+            <div class="card-desc">履歴・キャッシュ・Cookie・サイト保存データをワンクリックで一括削除。削除期間は1時間〜全期間から選択可能。2段階タップで誤操作を防止、Chrome起動時の自動クリーンアップにも対応。</div>
+            <div class="card-tags">
+              <span class="tag">MIT</span>
+              <span class="tag">プライバシー</span>
+              <span class="tag">一括削除</span>
+              <span class="tag">自動クリーン</span>
+            </div>
+            <div class="card-links">
+              <a class="card-link" href="https://chromewebstore.google.com/detail/clean-start/kemedhlaihadakejnnjgbfjodakcbahd" target="_blank" rel="noopener">
+                Chrome Web Store でインストール
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a class="card-link" href="https://github.com/1llum1n4t1s/CleanStart" target="_blank" rel="noopener">
+                GitHub でソースコードを見る
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1025,7 +1107,7 @@
         <div class="section-header">
           <div class="section-tag">NuGet Libraries</div>
           <h2 class="section-title">開発者向けライブラリ</h2>
-          <p class="section-desc">.NET向けのデバッグツールやフォークライブラリ。NuGetからインストールできます。</p>
+          <p class="section-desc">.NET向けのデバッグツール・ロガー・LLM統合・フォークライブラリ。NuGetからインストールできます。</p>
         </div>
 
         <div class="app-grid">
@@ -1126,6 +1208,46 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
             <a class="card-link" href="https://github.com/1llum1n4t1s/CRDebugger" target="_blank" rel="noopener" style="margin-top: 4px;">
+              GitHub
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="app-card" data-accent="emerald">
+            <div class="card-icon">🤖</div>
+            <div class="card-name">LlmChamber</div>
+            <div class="card-desc">ローカルLLMを.NETアプリにゼロ設定で組み込めるライブラリ。Ollamaランタイムとモデルを自動ダウンロード、GPU（Nvidia/AMD/Intel/NPU）も自動検出。WPF/Avalonia/WinForms/MAUI向けチャットコントロール付属。</div>
+            <div class="card-tags">
+              <span class="tag">NuGet</span>
+              <span class="tag">.NET 8+</span>
+              <span class="tag">ローカルLLM</span>
+              <span class="tag">Ollama</span>
+            </div>
+            <a class="card-link" href="https://www.nuget.org/packages/LlmChamber/" target="_blank" rel="noopener">
+              NuGet でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a class="card-link" href="https://github.com/1llum1n4t1s/LlmChamber" target="_blank" rel="noopener" style="margin-top: 4px;">
+              GitHub
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="app-card" data-accent="cyan">
+            <div class="card-icon">🪵</div>
+            <div class="card-name">SuperLightLogger</div>
+            <div class="card-desc">log4net/NLogで書かれた既存コードを`using`の置換だけでMicrosoft.Extensions.Loggingへ移行できる互換シム。Serilog/OpenTelemetry連携、NLog互換のファイルローテーション機能を内蔵。NativeAOT対応。</div>
+            <div class="card-tags">
+              <span class="tag">NuGet</span>
+              <span class="tag">.NET 8/10</span>
+              <span class="tag">NativeAOT</span>
+              <span class="tag">log4net互換</span>
+            </div>
+            <a class="card-link" href="https://www.nuget.org/packages/SuperLightLogger/" target="_blank" rel="noopener">
+              NuGet でインストール
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a class="card-link" href="https://github.com/1llum1n4t1s/SuperLightLogger" target="_blank" rel="noopener" style="margin-top: 4px;">
               GitHub
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
