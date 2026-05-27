@@ -27,7 +27,3 @@ Accent colors available: `cyan`, `blue`, `purple`, `emerald`.
 ## Deployment
 
 `index.html` / `about.html` and other static assets deploy automatically via GitHub Pages on push to `main`.
-
-## Local-only dev aids
-
-`_server.js` and `_test_hatena_bg.html` were Hatena theme preview helpers (gitignored). They remain in the working tree for legacy local use but are no longer referenced by this repository's workflow — see the Blog repository for the current preview path.

@@ -10,9 +10,5 @@ Desktop.ini
 .idea/
 .vscode/
 
-# Legacy Hatena theme dev aids (now lives in 1llum1n4t1s/Blog)
-_server.js
-_test_hatena_bg.html
-
 # Serena MCP
 .serena/
