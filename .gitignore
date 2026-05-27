@@ -1,9 +1,3 @@
-# Dependencies
-node_modules/
-
-# Build output (再生成可能)
-Hatena-Blog-Theme-Boilerplate/build/
-
 # OS
 Thumbs.db
 Desktop.ini
@@ -15,10 +9,6 @@ Desktop.ini
 *~
 .idea/
 .vscode/
-
-# Claude Code dev aids
-_server.js
-_test_hatena_bg.html
 
 # Serena MCP
 .serena/
