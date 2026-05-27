@@ -1,10 +1,6 @@
 # CLAUDE.md
 
-This file is the canonical agent guide for this repository. Claude Code, Codex,
-and other coding agents should follow this file when working with code here.
-
-`AGENTS.md` is intentionally kept as a small compatibility pointer to this file
-so project guidance is not maintained in two places.
+This file is the canonical agent guide for this repository. Claude Code should follow this file when working with code here.
 
 ## Project Overview
 
@@ -112,3 +108,4 @@ Hatena Blog's actual DOM class names sometimes differ from what you'd expect. **
 ## Temporary Files
 
 `_server.js` and `_test_hatena_bg.html` are development aids for Claude Preview, not part of the core project.
+
