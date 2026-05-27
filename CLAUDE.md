@@ -23,14 +23,16 @@ Build uses Vite 8 + Sass (with `@use` module system) + autoprefixer. Output is *
 
 ## Local Preview
 
-A Claude Preview dev server is configured in `.claude/launch.json`:
-- Server name: `static-server` (runs `node _server.js` on port 3000)
-- Default page: `_test_hatena_bg.html` (mock Hatena Blog DOM structure)
-
-Alternatively, the Vite dev server supports live-reloading against a real Hatena Blog (requires `<script>`/`<link>` tags injected into the blog's `<head>` settings — see `Hatena-Blog-Theme-Boilerplate/README.md` for setup):
+The Vite dev server supports live-reloading against a real Hatena Blog (requires `<script>`/`<link>` tags injected into the blog's `<head>` settings — see `Hatena-Blog-Theme-Boilerplate/README.md` for setup):
 ```bash
 cd Hatena-Blog-Theme-Boilerplate
 npm start -- 1llum1n4t1.org
+```
+
+For a quick offline preview against a mock Hatena Blog DOM, the repository ships with two gitignored dev aids — `_server.js` (Node static server) and `_test_hatena_bg.html` (mock DOM):
+```bash
+node _server.js
+# http://localhost:3000/ → _test_hatena_bg.html
 ```
 
 ## Architecture
@@ -107,5 +109,5 @@ Hatena Blog's actual DOM class names sometimes differ from what you'd expect. **
 
 ## Temporary Files
 
-`_server.js` and `_test_hatena_bg.html` are development aids for Claude Preview, not part of the core project.
+`_server.js` and `_test_hatena_bg.html` are local-only development aids (gitignored), used by the `node _server.js` workflow described in [Local Preview](#local-preview). They are not part of the core project.
 
