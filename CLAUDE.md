@@ -4,102 +4,30 @@ This file is the canonical agent guide for this repository. Claude Code should f
 
 ## Project Overview
 
-This is a **GitHub Pages** static site (`https://1llum1n4t1s.github.io/`) with two roles:
+This is a **GitHub Pages** static site (`https://1llum1n4t1s.github.io/`) serving as ゆろち's **portfolio site**:
 
-1. **Portfolio site** — `index.html` (free software showcase), `about.html` (profile)
-2. **Hatena Blog theme "Illuminatis"** — `Hatena-Blog-Theme-Boilerplate/` builds a CSS file applied to `https://1llum1n4t1.org/`
+- `index.html` — Free software showcase (Windows apps, Chrome extensions, NuGet libraries)
+- `about.html` — Profile page
 
-Detailed specs and past debugging notes are in `doc/PROJECT_OVERVIEW.md` and `doc/DEBUGGING_GUIDE.md` (both written in Japanese).
+Both pages have **self-contained inline CSS** in `<style>` tags and are independent files. They share the same design system (colors, fonts, soft pastel palette + OneDark dark mode) by convention.
 
-## Build Commands
-
-```bash
-cd Hatena-Blog-Theme-Boilerplate
-npm install       # first time only
-npm run build     # SCSS → build/boilerplate.css
-```
-
-Build uses Vite 8 + Sass (with `@use` module system) + autoprefixer. Output is **unminified** (`cssMinify: false`). Requires Node `^20.19.0 || >=22.12.0`.
-
-## Local Preview
-
-The Vite dev server supports live-reloading against a real Hatena Blog (requires `<script>`/`<link>` tags injected into the blog's `<head>` settings — see `Hatena-Blog-Theme-Boilerplate/README.md` for setup):
-```bash
-cd Hatena-Blog-Theme-Boilerplate
-npm start -- 1llum1n4t1.org
-```
-
-## Architecture
-
-### Hatena Blog Theme (main development target)
-
-**Critical constraint**: Hatena Blog has a **fixed HTML structure**. Only CSS customization is possible — no HTML or class names can be added. See `doc/PROJECT_OVERVIEW.md` for the full DOM tree.
-
-**SCSS modules** (`Hatena-Blog-Theme-Boilerplate/scss/lib/`):
-
-| File | Purpose |
-|------|---------|
-| `_variable.scss` | SCSS variables: breakpoints, max-widths, border-radius (`$radius-sm/md/lg/pill`), transitions |
-| `_theme.scss` | CSS Custom Properties for light/dark mode (auto-switches via `prefers-color-scheme`) |
-| `_animations.scss` | `@keyframes` — fadeUp (scroll reveal), shimmer |
-| `_core.scss` | Structural layout, typography, entry cards, comments, pager, sidebar, footer (~920 lines) |
-| `_components.scss` | Decorative/visual: category tags, buttons, Hatena-specific UI (~130 lines) |
-
-Load order in `boilerplate.scss` (uses `@use`, not `@import`): normalize.css → _variable → _theme → _animations → _core → _components. Files that need SCSS variables use `@use 'variable' as *` at the top.
-
-**Always edit SCSS sources**, not `build/boilerplate.css` (it's overwritten on build).
-
-### Layout Strategy
-
-`#content-inner` uses CSS Grid. `#box2` and `#box2-inner` (sidebar containers) use `display: contents` to flatten their children into the grid. `order` properties control visual sequence: search box (`-2`) → article (`-1`) → sidebar modules (`0`). Breakpoint at 768px switches from 1-column to 2-column.
-
-### Key CSS Patterns
-
-- **Grid overflow prevention**: `#wrapper` needs `min-width: 0` to prevent wide content (tables) from expanding beyond the grid column on mobile.
-- **`display: contents` caveat**: `#box2` and `#box2-inner` use `display: contents`, so styles applied directly to them (background, padding, border) have no visible effect. Style their children instead.
-- **Search form DRY pattern**: `_core.scss` uses `%search-form-base`, `%search-input-base`, `%search-button-base` placeholders shared by `.search-form`/`.search-module-*` and `.search-result-form`/`.search-result-*` via `@extend`.
-- **Gradient text (Safari)**: `#title a` needs both `-webkit-text-fill-color: transparent` and `color: transparent` for cross-browser gradient text. Removing the `-webkit-` prefixed version breaks Safari/iOS.
-
-### CSS Custom Properties
-
-Theme colors are defined as `--` variables in `_theme.scss` on `:root`, with dark mode overrides via `@media (prefers-color-scheme: dark)`. When changing colors, always update both light and dark values. Key variables: `--bg-deep`, `--bg-card`, `--accent-cyan`, `--accent-blue`, `--text-primary`, `--glow-cyan`.
-
-### Portfolio Site
-
-`index.html` and `about.html` have **self-contained inline CSS** in `<style>` tags. They share the same design system (colors, fonts, glows) as the Hatena theme but are independent files.
+> **Note**: The Hatena Blog theme "Illuminatis" was previously developed in this repo under `Hatena-Blog-Theme-Boilerplate/`. As of 2026-05, it has been moved to the dedicated [`1llum1n4t1s/Blog`](https://github.com/1llum1n4t1s/Blog) repository (`theme/` subdirectory). For theme work, switch to that repository.
 
 ## Adding a New App/Library to the Portfolio
 
 When adding a new product to `index.html`, update **all four** locations:
 
-1. **Card HTML** — Add an `<div class="app-card" data-accent="...">` inside the appropriate `tab-panel` (`#tab-chrome`, `#tab-windows`, `#tab-nuget`, or `#tab-websites`). Each card has: `.card-icon`, `.card-name`, `.card-desc`, `.card-tags`, and `.card-link`.
-2. **Structured data** — Add a `SoftwareApplication` entry to the JSON-LD `ItemList` in `<head>`, incrementing `position`.
+1. **Card HTML** — Add a `<div class="app-card" data-accent="...">` inside the appropriate `tab-panel` (`#tab-chrome`, `#tab-windows`, `#tab-nuget`, or `#tab-websites`). Each card has: `.card-icon`, `.card-name`, `.card-desc`, `.card-tags`, and `.card-link` (or `<div class="card-links">` containing multiple `.card-link` children when an app ships on multiple stores — e.g. Chrome Web Store + Firefox AMO + GitHub).
+2. **Structured data** — Add a `SoftwareApplication` entry to the JSON-LD `ItemList` in `<head>`, incrementing `position`. Set `operatingSystem` accurately (e.g. `"Google Chrome, Mozilla Firefox"` for cross-browser extensions).
 3. **Counts** — Update three numbers: `numberOfItems` in JSON-LD, `.stat-number` in the hero section, and the `<meta name="description">` product count.
-4. **Section description** — If the new product changes the scope of a section (e.g., adding non-fork libraries to the NuGet section), update the `<p class="section-desc">` text.
+4. **Section description** — If the new product changes the scope of a section, update the `<p class="section-desc">` text.
 
 Accent colors available: `cyan`, `blue`, `purple`, `emerald`.
 
 ## Deployment
 
-1. Run `npm run build` in `Hatena-Blog-Theme-Boilerplate/`
-2. Copy contents of `build/boilerplate.css`
-3. Paste into Hatena Blog admin → Design → Customize → Design CSS
-4. The portfolio pages (`index.html`, `about.html`) deploy automatically via GitHub Pages
+`index.html` / `about.html` and other static assets deploy automatically via GitHub Pages on push to `main`.
 
-## Breakpoints
+## Local-only dev aids
 
-- `480px` (max): extra-small mobile
-- `768px` (min): tablet — triggers 2-column grid
-- `992px` (min): desktop
-- `1200px` (min): wide screen
-
-## Hatena Blog DOM Pitfalls
-
-Hatena Blog's actual DOM class names sometimes differ from what you'd expect. **Always verify class names against the live site** (`https://1llum1n4t1.org/`) using Chrome DevTools MCP before writing CSS selectors. Known examples:
-- Hatena Star container: actual class is `.star-container` (not `.hatena-star-container`)
-- Category links: actual class is `.archive-category-link` (not `.entry-category-link`)
-
-## Temporary Files
-
-`_server.js` and `_test_hatena_bg.html` are local-only development aids (gitignored), not part of the core project.
-
+`_server.js` and `_test_hatena_bg.html` were Hatena theme preview helpers (gitignored). They remain in the working tree for legacy local use but are no longer referenced by this repository's workflow — see the Blog repository for the current preview path.
