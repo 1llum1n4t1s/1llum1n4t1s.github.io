@@ -23,19 +23,14 @@ npm run build     # scss/ → build/boilerplate.css を生成
 
 ## ローカルプレビュー
 
-### Claude Preview（推奨）
+### Vite dev server（推奨）
 
-`.claude/launch.json` で設定済み。`_server.js` が簡易HTTPサーバーとして動作する。
+`Hatena-Blog-Theme-Boilerplate/README.md` の `<script>`/`<link>` タグ仕込みを行えば、本番はてなブログに対してライブリロードできる。
 
+```bash
+cd Hatena-Blog-Theme-Boilerplate
+npm start -- 1llum1n4t1.org
 ```
-ポート: 3000
-テストページ: _test_hatena_bg.html（はてなブログのDOM構造を模したHTML）
-```
-
-**制限事項**:
-- Google Fonts の外部読み込みがタイムアウトすることがある
-- テストHTMLはライトモード表示になることがある（`prefers-color-scheme` はOSの設定に依存）
-- `file://` URLはブラウザ拡張機能で開けないため、HTTPサーバー経由で確認する
 
 ### ブラウザで直接確認
 
@@ -51,36 +46,7 @@ getComputedStyle(document.querySelector('#container')).zIndex;
 
 ## よくある問題と解決パターン
 
-### 1. 背景グロー（放射状グラデーション）が表示されない
-
-**症状**: ダークモードで背景にシアン/ブルーのグロー効果が見えない
-
-**原因**: CSS スタッキングコンテキストの問題
-
-`#container::before` と `#container::after` に `z-index: -1` を設定しているが、親の `#container` がスタッキングコンテキストを作成していないと、pseudo-elements は `body` の背景の裏に描画されてしまう。
-
-**解決策**: `#container` に `z-index: 0` を追加
-
-```scss
-// scss/lib/_components.scss
-#container {
-  position: relative;
-  z-index: 0; // スタッキングコンテキストを作成
-}
-```
-
-**確認方法**:
-
-```javascript
-// ブラウザコンソールで一時テスト
-document.querySelector('#container').style.zIndex = '0';
-
-// 確認: pseudo-elements の位置
-getComputedStyle(document.querySelector('#container'), '::before').position;
-// → "fixed" であること
-```
-
-### 2. スマホ表示で横幅が広がる（水平オーバーフロー）
+### 1. スマホ表示で横幅が広がる（水平オーバーフロー）
 
 **症状**: モバイルビューポートでページが横にスクロールする
 
@@ -123,7 +89,7 @@ document.querySelector('#wrapper').style.minWidth = '0';
 // その後オーバーフロー検出スクリプトを再実行
 ```
 
-### 3. ライト/ダークモードが切り替わらない
+### 2. ライト/ダークモードが切り替わらない
 
 **確認ポイント**:
 - `prefers-color-scheme` はOSのダークモード設定に依存
@@ -213,7 +179,7 @@ checkGrid('#content-inner');
 | `_theme.scss` | 色の変更（ライト/ダーク両方を変更すること） |
 | `_animations.scss` | アニメーションの追加・変更 |
 | `_core.scss` | レイアウト・記事・サイドバー・フッターの変更 |
-| `_components.scss` | UI部品（カテゴリタグ・グロー・ボタン等）の変更 |
+| `_components.scss` | UI部品（カテゴリタグ・ボタン等）の変更 |
 
 ### 編集時の注意事項
 
@@ -226,5 +192,4 @@ checkGrid('#content-inner');
 
 | 日付 | 問題 | 原因 | 修正ファイル | 修正内容 |
 |------|------|------|-------------|---------|
-| 2026-02-23 | 背景グローが表示されない | スタッキングコンテキスト未作成 | `_components.scss` | `#container` に `z-index: 0` 追加 |
 | 2026-02-23 | スマホで横幅オーバーフロー | Grid の `min-width: auto` | `_core.scss` | `#wrapper` に `min-width: 0` 追加 |

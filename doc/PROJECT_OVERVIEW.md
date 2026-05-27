@@ -17,24 +17,19 @@
 ├── about.html                      # アバウトページ
 ├── favicon.png                     # ファビコン
 ├── doc/                            # ★ 本ドキュメント
-├── .claude/
-│   └── launch.json                 # Claude Preview用のdev server設定
-├── Hatena-Blog-Theme-Boilerplate/  # はてなブログテーマ
-│   ├── scss/                       # ★ SCSSソース（編集はこちら）
-│   │   ├── boilerplate.scss        # エントリポイント（@import順序定義）
-│   │   └── lib/
-│   │       ├── _variable.scss      # 変数（ブレイクポイント・サイズ・radius等）
-│   │       ├── _theme.scss         # CSS Custom Properties（ライト/ダーク定義）
-│   │       ├── _animations.scss    # @keyframes定義
-│   │       ├── _core.scss          # レイアウト・記事・サイドバー・フッター
-│   │       └── _components.scss    # カテゴリタグ・グロー・ボタン等UI部品
-│   ├── build/
-│   │   └── boilerplate.css         # ★ ビルド成果物（はてなブログに貼り付けるCSS）
-│   ├── package.json                # npm scripts（build / start）
-│   ├── vite.config.js              # Vite設定（SCSS→CSS、autoprefixer）
-│   └── server.js                   # ローカルプレビュー用サーバー
-├── _server.js                      # Claude検証用簡易HTTPサーバー（一時ファイル）
-└── _test_hatena_bg.html            # Claude検証用テストHTML（一時ファイル）
+└── Hatena-Blog-Theme-Boilerplate/  # はてなブログテーマ
+    ├── scss/                       # ★ SCSSソース（編集はこちら）
+    │   ├── boilerplate.scss        # エントリポイント（@use順序定義）
+    │   └── lib/
+    │       ├── _variable.scss      # 変数（ブレイクポイント・サイズ・radius等）
+    │       ├── _theme.scss         # CSS Custom Properties（ライト/ダーク定義）
+    │       ├── _animations.scss    # @keyframes定義
+    │       ├── _core.scss          # レイアウト・記事・サイドバー・フッター
+    │       └── _components.scss    # カテゴリタグ・ボタン等UI部品
+    ├── build/
+    │   └── boilerplate.css         # ★ ビルド成果物（はてなブログに貼り付けるCSS）
+    ├── package.json                # npm scripts（build / start）
+    └── vite.config.js              # Vite設定（SCSS→CSS、autoprefixer）
 ```
 
 ## はてなブログテーマ「Illuminatis」
@@ -53,8 +48,6 @@
 - ライトモード: `#f8fafc` ベースの明るい背景
 - シアン/ブルー/パープルのグラデーションアクセント
 - カードスタイルの記事一覧（ホバーで浮き上がり＋グラデーションライン）
-- 背景にシアン＆ブルーのグロー（放射状グラデーション）が浮遊
-- ノイズオーバーレイ（`body::before`でSVGフラクタルノイズ）
 - フォント: DM Sans / Noto Sans JP / JetBrains Mono
 
 ### はてなブログのHTML構造

@@ -41,7 +41,7 @@ npm start -- 1llum1n4t1.org
 |------|---------|
 | `_variable.scss` | SCSS variables: breakpoints, max-widths, border-radius (`$radius-sm/md/lg/pill`), transitions |
 | `_theme.scss` | CSS Custom Properties for light/dark mode (auto-switches via `prefers-color-scheme`) |
-| `_animations.scss` | `@keyframes` — float (glow movement), fadeUp (scroll reveal), shimmer |
+| `_animations.scss` | `@keyframes` — fadeUp (scroll reveal), shimmer |
 | `_core.scss` | Structural layout, typography, entry cards, comments, pager, sidebar, footer (~920 lines) |
 | `_components.scss` | Decorative/visual: category tags, buttons, Hatena-specific UI (~130 lines) |
 
