@@ -29,12 +29,6 @@ cd Hatena-Blog-Theme-Boilerplate
 npm start -- 1llum1n4t1.org
 ```
 
-For a quick offline preview against a mock Hatena Blog DOM, the repository ships with two gitignored dev aids — `_server.js` (Node static server) and `_test_hatena_bg.html` (mock DOM):
-```bash
-node _server.js
-# http://localhost:3000/ → _test_hatena_bg.html
-```
-
 ## Architecture
 
 ### Hatena Blog Theme (main development target)
@@ -107,5 +101,5 @@ Hatena Blog's actual DOM class names sometimes differ from what you'd expect. **
 
 ## Temporary Files
 
-`_server.js` and `_test_hatena_bg.html` are local-only development aids (gitignored), used by the `node _server.js` workflow described in [Local Preview](#local-preview). They are not part of the core project.
+`_server.js` and `_test_hatena_bg.html` are local-only development aids (gitignored), not part of the core project.
 
