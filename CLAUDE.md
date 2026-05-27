@@ -48,8 +48,8 @@ node _server.js
 | `_variable.scss` | SCSS variables: breakpoints, max-widths, border-radius (`$radius-sm/md/lg/pill`), transitions |
 | `_theme.scss` | CSS Custom Properties for light/dark mode (auto-switches via `prefers-color-scheme`) |
 | `_animations.scss` | `@keyframes` — float (glow movement), fadeUp (scroll reveal), shimmer |
-| `_core.scss` | Structural layout, typography, entry cards, comments, pager, sidebar, footer (~970 lines) |
-| `_components.scss` | Decorative/visual: category tags, background glows, buttons, Hatena-specific UI (~170 lines) |
+| `_core.scss` | Structural layout, typography, entry cards, comments, pager, sidebar, footer (~920 lines) |
+| `_components.scss` | Decorative/visual: category tags, buttons, Hatena-specific UI (~130 lines) |
 
 Load order in `boilerplate.scss` (uses `@use`, not `@import`): normalize.css → _variable → _theme → _animations → _core → _components. Files that need SCSS variables use `@use 'variable' as *` at the top.
 
@@ -61,10 +61,8 @@ Load order in `boilerplate.scss` (uses `@use`, not `@import`): normalize.css →
 
 ### Key CSS Patterns
 
-- **Background glows**: `#container::before/::after` with `position: fixed`, `z-index: -1`, radial gradients, `will-change: transform` for GPU layer promotion. Requires `#container { z-index: 0 }` to create a stacking context (otherwise glows render behind `body` background).
 - **Grid overflow prevention**: `#wrapper` needs `min-width: 0` to prevent wide content (tables) from expanding beyond the grid column on mobile.
 - **`display: contents` caveat**: `#box2` and `#box2-inner` use `display: contents`, so styles applied directly to them (background, padding, border) have no visible effect. Style their children instead.
-- **Noise overlay**: `body::before` with SVG fractal noise, `position: fixed`, `z-index: 9999`, `transform: translateZ(0)` for GPU layer promotion.
 - **Search form DRY pattern**: `_core.scss` uses `%search-form-base`, `%search-input-base`, `%search-button-base` placeholders shared by `.search-form`/`.search-module-*` and `.search-result-form`/`.search-result-*` via `@extend`.
 - **Gradient text (Safari)**: `#title a` needs both `-webkit-text-fill-color: transparent` and `color: transparent` for cross-browser gradient text. Removing the `-webkit-` prefixed version breaks Safari/iOS.
 

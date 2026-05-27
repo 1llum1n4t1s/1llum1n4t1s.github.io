@@ -31,9 +31,8 @@
   --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
   --shadow-card-hover: 0 20px 40px -5px rgba(0, 0, 0, 0.12);
 
-  // Glows
+  // Glows (--glow-cyan is reused by accent borders / shadows)
   --glow-cyan: rgba(8, 145, 178, 0.08);
-  --glow-blue: rgba(37, 99, 235, 0.06);
 
   // Code Block
   --bg-code: #f1f5f9;
@@ -47,9 +46,6 @@
   // Scrollbar
   --scrollbar-thumb: #cbd5e1;
   --scrollbar-track: var(--bg-deep);
-
-  // Noise overlay opacity
-  --noise-opacity: 0.02;
 }
 
 // ── Dark Mode ──
@@ -82,9 +78,8 @@
     --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
     --shadow-card-hover: 0 20px 40px rgba(0, 0, 0, 0.3);
 
-    // Glows
+    // Glows (--glow-cyan is reused by accent borders / shadows)
     --glow-cyan: rgba(34, 211, 238, 0.15);
-    --glow-blue: rgba(59, 130, 246, 0.12);
 
     // Code Block
     --bg-code: #0f1523;
@@ -94,8 +89,5 @@
     // Scrollbar
     --scrollbar-thumb: #1e293b;
     --scrollbar-track: #0a0e1a;
-
-    // Noise overlay opacity
-    --noise-opacity: 0.03;
   }
 }

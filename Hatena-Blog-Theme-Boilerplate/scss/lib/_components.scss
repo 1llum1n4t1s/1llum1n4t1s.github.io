@@ -64,40 +64,6 @@
   }
 }
 
-// ── Background Glow Effects (decorative) ──
-#container {
-  position: relative;
-  z-index: 0; // Create stacking context so ::before/::after (z-index:-1) render above body bg
-  &::before {
-    content: '';
-    position: fixed;
-    top: -20%;
-    right: -15%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, var(--glow-cyan) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: float 20s ease-in-out infinite;
-    pointer-events: none;
-    z-index: -1;
-    will-change: transform;
-  }
-  &::after {
-    content: '';
-    position: fixed;
-    bottom: -15%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, var(--glow-blue) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: float 25s ease-in-out infinite reverse;
-    pointer-events: none;
-    z-index: -1;
-    will-change: transform;
-  }
-}
-
 // ── Hatena Star ──
 .star-container {
   display: none;
